@@ -3,6 +3,7 @@ class RockInformationController < ApplicationController
   end
 
   def new
+    @rock = RockInformation.new
   end
 
   def create
