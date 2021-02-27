@@ -15,6 +15,7 @@ class CreateRockInformations < ActiveRecord::Migration[6.0]
       t.integer :people_time2_id, null:false
       t.integer :people_vibe_id, null:false
       t.text :other
+      t.references :user, null:false, foreign_key: true
       t.timestamps
     end
   end

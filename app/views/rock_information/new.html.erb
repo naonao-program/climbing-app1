@@ -1,4 +1,5 @@
 <%= form_with(model: @rock, url:rock_information_index_path, local: true) do |f| %>
+
   <div class="img-upload">
     <div class="weight-bold-text">
        岩場の写真
@@ -44,6 +45,11 @@
   <%= f.collection_select(:people_time1_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   <%= "〜"%>
   <%= f.collection_select(:people_time2_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>岩場の雰囲気</span><br>
+  <%= f.collection_select(:people_vibe_id, Vibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
+  <%= f.text_field :other%><br>
 
   <%= f.submit "投稿する"%>
   <%=link_to 'もどる', root_path, class:"back-btn" %>
