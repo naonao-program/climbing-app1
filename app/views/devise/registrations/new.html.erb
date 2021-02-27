@@ -31,22 +31,22 @@
 
   <div class="field">
     <label>ジムでのボルダリングの最高グレード</label><br />
-    <%= f.collection_select(:boulder_gym_grade_id, BoulderGymGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= f.collection_select(:boulder_gym_grade_id, BoulderGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   </div>
 
   <div class="field">
     <label>ジムでのリードの最高グレード</label><br />
-    <%= f.collection_select(:lead_gym_grade_id, LeadGymGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= f.collection_select(:lead_gym_grade_id, LeadGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   </div>
 
   <div class="field">
     <label>岩場のボルダリングの最高グレード</label><br />
-    <%= f.collection_select(:boulder_rock_grade_id, BoulderRockGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= f.collection_select(:boulder_rock_grade_id, BoulderGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   </div>
 
   <div class="field">
     <label>岩場でのリードの最高グレード</label><br />
-    <%= f.collection_select(:lead_rock_grade_id, LeadRockGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= f.collection_select(:lead_rock_grade_id, LeadGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   </div>
 
   <div class="field">
@@ -73,3 +73,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<% end %>
