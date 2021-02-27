@@ -9,7 +9,8 @@ class Day < ActiveHash::Base
     { id:7, name: '木曜日'},
     { id:8, name: '金曜日'},
     { id:9, name: '土曜日'},
-    { id:10, name: '日曜日'}
+    { id:10, name: '日曜日'},
+    { id:11, name: 'わからない'}
   ]
   include ActiveHash::Associations
   has_many :rock_information

@@ -1,5 +1,7 @@
 <%= form_with(model: @rock, url:rock_information_index_path, local: true) do |f| %>
-
+<div class="field_with_errors">
+  <%= render 'shared/error_messages', model: f.object %>
+</div>
   <div class="img-upload">
     <div class="weight-bold-text">
        岩場の写真
