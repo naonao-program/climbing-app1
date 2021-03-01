@@ -12,6 +12,7 @@
         クリックしてファイルをアップロード
        </p>
       <%= f.file_field :image, id:"item-image" %>
+      <div id = "image-list"></div>
     </div>
   </div>
   <%# /出品画像 %>
@@ -54,6 +55,6 @@
   <%= f.text_field :other%><br>
 
   <%= f.submit "投稿する"%>
-  <div id = "imagr-list"></div>
   <%=link_to 'もどる', root_path, class:"back-btn" %>
 <% end %>
+<%= image_tag @rock.image, id: 'image' if @rock.image.present? %>
