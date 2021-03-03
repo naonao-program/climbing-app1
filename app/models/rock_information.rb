@@ -15,6 +15,7 @@ class RockInformation < ApplicationRecord
       validates :grade_sence_id
       validates :people_day_id
       validates :people_time1_id
+      validates :people_time2_id
       validates :people_vibe_id
     end
   end
