@@ -3,6 +3,7 @@ class RockInformation < ApplicationRecord
   has_many_attached :images
 
   with_options presence:true do
+    validates :images
     validates :name
     validates :address
     with_options numericality: { other_than: 1} do
