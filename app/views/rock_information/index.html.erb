@@ -11,6 +11,15 @@
   </header>
   <%= link_to "岩情報の投稿",new_rock_information_path%>
 
+  <% @rock.each do |rock| %>
+    <%= rock.content %>
+    <div class="rock-item">
+      <% rock.images.each do |image| %>
+        <%= image_tag image, class:'images' %>
+      <% end %>
+    </div>
+  <% end %>
+
     <footer>
     </footer>
   </body>
