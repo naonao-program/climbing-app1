@@ -42,8 +42,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_073906) do
     t.integer "season2_id", null: false
     t.integer "night_id", null: false
     t.integer "grade_sence_id", null: false
-    t.integer "people_day1_id", null: false
-    t.integer "people_day2_id", null: false
+    t.integer "people_day_id", null: false
     t.integer "people_time1_id", null: false
     t.integer "people_time2_id", null: false
     t.integer "people_vibe_id", null: false

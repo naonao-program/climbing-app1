@@ -13,10 +13,8 @@ class RockInformation < ApplicationRecord
       validates :season2_id
       validates :night_id
       validates :grade_sence_id
-      validates :people_day1_id
-      validates :people_day2_id
+      validates :people_day_id
       validates :people_time1_id
-      validates :people_day2_id
       validates :people_vibe_id
     end
   end
