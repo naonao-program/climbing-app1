@@ -18,5 +18,4 @@ class RockInformation < ApplicationRecord
       validates :people_vibe_id
     end
   end
-
 end
