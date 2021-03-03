@@ -2,7 +2,7 @@
   <%= link_to image_tag("climbing-app-logo.png",class:"climbing-logo"),"/" %>
   <ul class= "header-ul">
     <li><%= link_to 'ジム情報', class: "gymInformation"%></li>
-    <li><%= link_to '岩場情報', class: "rockInformation" %></li>
+    <li><%= link_to '岩場情報', rock_information_index_path,class: "rockInformation" %></li>
 
     <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
