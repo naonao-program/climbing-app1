@@ -1,7 +1,7 @@
 class RockInformationController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @rock = RockInformation.include(:user)
+    
   end
 
   def new
