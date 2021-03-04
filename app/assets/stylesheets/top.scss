@@ -1,3 +1,20 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+
+
+  background-size: 1680px;
+  height: 1080px;
+}
+
+.background-image {
+  background-image: image-url("background-image.jpg");
+  background-size: 1680px;
+  height: 1080px;
+}
+
+@media (max-width: 1000px) {
+  background-size: 1000px;
+}

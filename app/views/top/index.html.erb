@@ -2,13 +2,18 @@
 <html>
  <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <title>Climbing-App</title>
   </head>
   <body>
     <header>
+    <%= render partial: "shared/header"%>
+    <div class="background-image">
+    </div>
       <%= render partial: "shared/header"%>
     </header>
+    
     <%= link_to "岩情報の投稿",new_rock_information_path%>
     <%= "これはトップページ"%>
   </body>
