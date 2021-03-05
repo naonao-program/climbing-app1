@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+.toppage-body {
   border: 1px solid #707070;
   opacity: 1;
   background-image: image-url("background-image.jpg");
@@ -10,7 +10,11 @@ body {
   height: 1080px;
 }
 
-.container {
+.toppage {
+  
+}
+
+.header-container {
   width: 100%;
   max-width: 1320px;
   margin-left: 185px;
@@ -22,7 +26,12 @@ body {
   font-family: SignPainter;
   font-size: 45px;
   color: #ffffff;
-  margin-top: 54px;
 }
 
+a {
+  font-family: ヒラギノ角ゴシック;
+  font-size: 25px;
+  color: #ffffff;
+  margin-top: 15px;
+}
 

@@ -3,18 +3,29 @@
  <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link href="https://fonts.google.com/specimen/Noto+Serif+JP?preview.text_type=custom#standard-styles" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Climbing-App</title>
   </head>
   <body>
-    <div class= "container">
+  <div class="toppage-body">
+    <div class= "header-container">
       <%= link_to "Climbing App",root_path, class: "header-logo"%>
       <ul class="header-ul">
-        <li><%= link_to "Gym", class: "ul"%></li>
-        <li><%= link_to "Rock"%></li>
-        <li><%= link_to "Login"%></li>
-        <li><%= link_to "Sign Up"%></li>
+        <li class= "header-li"><%= link_to "Gym."%></li>
+        <li class= "header-li"><%= link_to "Rock."%></li>
+      <%# ログインしているときしていないときで分ける %>
+      <% if user_signed_in?%>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li class= "header-li"><%= link_to "Login.",new_user_session_path%></li>
+        <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path%></li>
+        <% end %>
+      <%# ↑ログインしているときしていない表示切り替え %>
+      </ul>
     </div>
+  </div>
 
     <header>
     </header>
