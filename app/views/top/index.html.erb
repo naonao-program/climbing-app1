@@ -25,6 +25,14 @@
       <%# ↑ログインしているときしていない表示切り替え %>
       </ul>
     </div>
+    <%= link_to(root_path,class: 'toppage-gym-btn') do%>
+      <span>ジム<br>情報投稿</span>
+      <%= image_tag 'climbing.png', size: '185x50' ,class: "btn-icon"%>
+    <% end%>
+    <%= link_to(new_rock_information_path, class: 'toppage-rock-btn') do%>
+      <span>岩場<br>情報投稿</span>
+      <%= image_tag 'climbing-with-rope.png' ,size: '185x50' ,class: "btn-icon"%>
+    <% end %>
   </div>
 
     <header>

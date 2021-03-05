@@ -1,6 +1,7 @@
 class CreateRockInformations < ActiveRecord::Migration[6.0]
   def change
     create_table :rock_informations do |t|
+      t.string :boulder_or_lead_id, null:false
       t.string :name, null:false
       t.integer :region_id, null:false
       t.integer :rock_quality_id, null:false

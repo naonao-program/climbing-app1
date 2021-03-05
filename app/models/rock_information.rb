@@ -7,6 +7,7 @@ class RockInformation < ApplicationRecord
     validates :name
     validates :address
     with_options numericality: { other_than: 1} do
+      validates :boulder_or_lead_id
       validates :region_id
       validates :rock_quality_id
       validates :season1_id
