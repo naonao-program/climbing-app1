@@ -14,16 +14,18 @@
       <ul class="header-ul">
         <li class= "header-li"><%= link_to "Gym."%></li>
         <li class= "header-li"><%= link_to "Rock.",rock_information_index_path%></li>
+        <li class= "header-li"><%= link_to "Group."%></li>
       <%# ログインしているときしていないときで分ける %>
       <% if user_signed_in?%>
         <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
         <li class= "header-li"><%= link_to "Login.",new_user_session_path%></li>
         <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path%></li>
         <% end %>
       <%# ↑ログインしているときしていない表示切り替え %>
       </ul>
+      <span class="catch-copy", id="animation">共に創る、最高の景色</span>
     </div>
     <%= link_to(root_path,class: 'toppage-gym-btn') do%>
       <span>ジム<br>情報投稿</span>
