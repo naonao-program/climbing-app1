@@ -7,14 +7,16 @@
     <title>Climbing-App</title>
   </head>
   <body>
-    <header>
-    <%= render partial: "shared/header"%>
-    <div class="background-image">
+    <div class= "container">
+      <%= link_to "Climbing App",root_path, class: "header-logo"%>
+      <ul class="header-ul">
+        <li><%= link_to "Gym", class: "ul"%></li>
+        <li><%= link_to "Rock"%></li>
+        <li><%= link_to "Login"%></li>
+        <li><%= link_to "Sign Up"%></li>
     </div>
-      <%= render partial: "shared/header"%>
+
+    <header>
     </header>
-    
-    <%= link_to "岩情報の投稿",new_rock_information_path%>
-    <%= "これはトップページ"%>
   </body>
 </html>
