@@ -18,6 +18,12 @@ RSpec.describe RockInformation, type: :model do
         @rock_information.valid?
         expect(@rock_information.errors.full_messages).to include("Images can't be blank")
       end
+
+      it 'boulder_or_lead_idが{1}の場合は投稿できない' do
+        @rock_information.boulder_or_lead_id = 1
+        @rock_information.valid?
+        expect(@rock_information.errors.full_messages).to include("Boulder or lead must be other than 1")
+      end
       
       it 'nameが空では投稿できない' do
         @rock_information.name = nil
