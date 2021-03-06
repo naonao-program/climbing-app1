@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GymInformation, type: :model do
-  before do
-    # @user = FactoryBot.create(:user) 
+  before do 
     @gym_information = FactoryBot.build(:gym_information)
   end
 
@@ -79,13 +78,6 @@ RSpec.describe GymInformation, type: :model do
         @gym_information.valid?
         expect(@gym_information.errors.full_messages).to include("Clerk vibe must be other than 1")
       end
-
-      # user_idがないと投稿できないを書く
-      # it 'user_idがないと投稿できない' do
-      #   @gym_information.user_id = nil
-      #   @gym_information.valid?
-      #   expect(@gym_information.errors.full_messages).to include("User can't be blank")
-      # end
     end
   end
 end
