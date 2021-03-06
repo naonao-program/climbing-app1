@@ -17,7 +17,7 @@
   </div>
   <%# /出品画像 %>
 
-  <span>岩場の形態</span>
+  <span>スタイル</span>
   <span class="indispensable">必須</span><br/>
   <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
 

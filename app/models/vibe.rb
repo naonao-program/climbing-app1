@@ -8,4 +8,5 @@ class Vibe < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :rock_information
+  has_many :gym_information
 end

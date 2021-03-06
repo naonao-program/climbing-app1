@@ -1,0 +1,65 @@
+<%= render 'shared/post'%>
+<%= form_with(model: @gym, url:rock_information_index_path, local: true) do |f| %>
+<%= render 'shared/error_messages', model: f.object%>
+  <%# 画像 %>
+  <div class="img-upload">
+    <div class="weight-bold-text">
+       ジムの写真
+       <span class="indispensable">必須</span><br/>
+    </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+       </p>
+      <%= f.file_field :images, name:'rock_information[images][]', id:"item-image" %>
+      <div id = "image-list"></div>
+    </div>
+  </div>
+  <%# ↑画像 %>
+
+  <span>スタイル</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
+  <span>ジムの名前</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.text_field :name%><br/>
+
+  <span>ジムの地域</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:region_id,Region.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  
+  <span>ジムの住所</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.text_field :address%><br/>
+
+  <span>全体的なグレード感</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:grade_sence_id, GradeSence.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>人が少ない日</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_day_id, Day.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>人が少ない時間</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_time1_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+  <%= "〜"%>
+  <%= f.collection_select(:people_time2_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>ジムの雰囲気</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_vibe_id, Vibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>店員さんの雰囲気</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:clerk_vibe_id, Clerk.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  
+  <%# 液チョーク✕など %>
+  <span>その他（ジムでの注意•ルールなどあれば記述してください）</span><br>
+  <%= f.text_field :other%><br>
+
+  <%= f.submit "投稿する"%>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+<% end %>
+
