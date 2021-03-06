@@ -52,4 +52,5 @@ class Region < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :users
+  has_many :gym_information
 end

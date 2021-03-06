@@ -24,7 +24,7 @@
       <% else %>
         <li class= "header-li"><%= link_to "Login.",new_user_session_path%></li>
         <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path%></li>
-        <% end %>
+      <% end %>
       <%# ↑ログインしているときしていない表示切り替え %>
       </ul>
     </div>
@@ -33,7 +33,7 @@
       </div>
     
     <div class= "post-btn">
-      <%= link_to(root_path,class: 'toppage-gym-btn') do%>
+      <%= link_to(new_gym_information_path,class: 'toppage-gym-btn') do%>
         <%= image_tag 'climbing.png', size: '185x50' ,class: "btn-icon"%>
         <span>ジム情報投稿</span>
       <% end%>
