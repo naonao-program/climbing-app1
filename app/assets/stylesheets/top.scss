@@ -33,21 +33,17 @@ a {
 }
 
 .toppage-gym-btn{
-  width: 140px;
-  background: #ff8018;
-  text-align: center;
-  border-radius: 4%;
-  top: 450px;
-  right: 11px;
-  position: fixed;
-  padding: 15px;
-  margin-right: 1200px;
-}
-
-.toppage-rock-btn {
+  // width: 140px;
+  // background: #ff8018;
+  // text-align: center;
+  // border-radius: 4%;
+  // top: 450px;
+  // right: 11px;
+  // position: fixed;
+  // padding: 15px;
+  // margin-right: 1200px;
   width: 200px;
   height: 50px;
-  background-color: white;
   font-size: 16px;
   letter-spacing: 0.05em;
   text-align: center;
@@ -55,7 +51,21 @@ a {
   right: 32px;
   position: fixed;
   padding: 15px;
-  margin-right: 850px;
+  margin-right: 1170px;
+  color: black;
+}
+
+.toppage-rock-btn {
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  top: 450px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  margin-right: 870px;
   color: white;
 }
 
