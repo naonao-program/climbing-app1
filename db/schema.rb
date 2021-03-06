@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_073906) do
   end
 
   create_table "rock_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "boulder_or_lead_id", null: false
     t.string "name", null: false
     t.integer "region_id", null: false
     t.integer "rock_quality_id", null: false

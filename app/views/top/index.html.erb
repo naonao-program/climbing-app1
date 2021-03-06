@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link rel="stylesheet" href="style.css">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <title>Climbing-App</title>
+  </head>
+  <body>
+  <div class="toppage-body">
+    <div class= "header-container">
+      <%= link_to "Climbing App",root_path, class: "header-logo"%>
+      <ul class="header-ul">
+        <li class= "header-li"><%= link_to "Gym.",class: "header-li"%></li>
+        <li class= "header-li"><%= link_to "Rock.",rock_information_index_path%></li>
+        <li class= "header-li"><%= link_to "Group."%></li>
+      <%# ログインしているときしていないときで分ける %>
+      <% if user_signed_in?%>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li class= "header-li"><%= link_to "Login.",new_user_session_path%></li>
+        <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path%></li>
+        <% end %>
+      <%# ↑ログインしているときしていない表示切り替え %>
+      </ul>
+    </div>
+      <div>
+        <span class="catch-copy", id="animation">共に創る、最高の景色</span>
+      </div>
+    
+    <div class= "post-btn">
+      <%= link_to(root_path,class: 'toppage-gym-btn') do%>
+        <%= image_tag 'climbing.png', size: '185x50' ,class: "btn-icon"%>
+        <span>ジム情報投稿</span>
+      <% end%>
+      <%= link_to(new_rock_information_path, class: 'toppage-rock-btn') do%>
+        <%= image_tag 'climbing-with-rope.png' ,size: '70x70' ,class: "btn-icon"%>
+        <span class="btn-letter">岩場情報投稿</span>
+      <% end %>
+    </div>
+  </div>
+
+    <header>
+    </header>
+  </body>
+</html>
