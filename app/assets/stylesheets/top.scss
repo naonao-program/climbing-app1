@@ -1,6 +1,6 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
 
 .toppage-body {
   border: 1px solid #707070;
@@ -21,47 +21,56 @@
   position: absolute;
   display: inline-block;
   font-family: SignPainter;
-  font-size: 45px;
+  font-size: 55px;
   color: #ffffff;
 }
 
 a {
-  font-family: ヒラギノ角ゴシック;
+  font-family: SignPainter;
   font-size: 25px;
   color: #ffffff;
   margin-top: 15px;
 }
 
 .toppage-gym-btn{
-  width: 120px;
+  width: 140px;
   background: #ff8018;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
+  top: 450px;
+  right: 11px;
   position: fixed;
   padding: 15px;
-  margin-right: 400px;
+  margin-right: 1200px;
 }
 
 .toppage-rock-btn {
-  width: 120px;
-  background: #29aec5;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  font-size: 16px;
+  letter-spacing: 0.05em;
   text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
+  top: 450px;
   right: 32px;
   position: fixed;
   padding: 15px;
-  margin-right: 175px;
+  margin-right: 850px;
+  color: white;
 }
 
 .btn-icon {
-  width: 60%;
+  width: 10%;
+  height: 100%;
+
+}
+
+.btn-letter {
+ color: black;
 }
 
 .catch-copy {
-  font-family: Arial;
+  font-family: SignPainter;
   position: absolute;
   top: 339px;
   left: 271px;
@@ -72,4 +81,52 @@ a {
   letter-spacing: 0px;
   color: #FFFFFF;
   opacity: 1;
+}
+
+
+
+// 要素のアニメーション↓
+.catch-copy{
+    animation: zoomIn 1s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+  }
+   
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+.toppage-gym-btn{
+  animation: zoomIn 3s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+}
+ 
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.toppage-rock-btn {
+  animation: zoomIn 3s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+}
+ 
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
