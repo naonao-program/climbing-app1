@@ -8,7 +8,6 @@ class GymInformationController < ApplicationController
 
   def create
     @gym = GymInformation.new(gym_information_params)
-    binding.pry
     if @gym.save
       redirect_to root_path
     else
