@@ -1,19 +1,19 @@
 FactoryBot.define do
   factory :rock_information do
-    boulder_or_lead_id {'2'}
-    name               {'あいうえお'}
-    region_id          {'2'}
-    rock_quality_id    {'2'}
-    address            {'大阪市'}
-    season1_id         {'2'}
-    season2_id         {'2'}
-    night_id           {'2'}
-    grade_sence_id     {'2'}
-    people_day_id      {'2'}
-    people_time1_id    {'2'}
-    people_time2_id    {'2'}
-    people_vibe_id     {'2'}
-    other              {'かきくけこ'}
+    boulder_or_lead_id { '2' }
+    name               { 'あいうえお' }
+    region_id          { '2' }
+    rock_quality_id    { '2' }
+    address            { '大阪市' }
+    season1_id         { '2' }
+    season2_id         { '2' }
+    night_id           { '2' }
+    grade_sence_id     { '2' }
+    people_day_id      { '2' }
+    people_time1_id    { '2' }
+    people_time2_id    { '2' }
+    people_vibe_id     { '2' }
+    other              { 'かきくけこ' }
 
     association :user
 
