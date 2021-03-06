@@ -1,0 +1,2 @@
+class GymInformation < ApplicationRecord
+end
