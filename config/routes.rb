@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :rock_information, only:[:index,:new, :create]
   resources :gym_information, only:[:index, :new, :create]
+  resources :group, only:[:index]
 end
