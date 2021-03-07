@@ -14,9 +14,9 @@
     <div class= "header-container">
       <%= link_to "Climbing App",root_path, class: "header-logo"%>
       <ul class="header-ul">
-        <li class= "header-li"><%= link_to "Gym.",class: "header-li"%></li>
+        <li class= "header-li"><%= link_to "Gym.",gym_information_index_path%></li>
         <li class= "header-li"><%= link_to "Rock.",rock_information_index_path%></li>
-        <li class= "header-li"><%= link_to "Group."%></li>
+        <li class= "header-li"><%= link_to "Group.",group_index_path%></li>
       <%# ログインしているときしていないときで分ける %>
       <% if user_signed_in?%>
         <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
