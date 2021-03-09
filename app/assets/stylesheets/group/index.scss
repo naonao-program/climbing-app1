@@ -1,0 +1,39 @@
+main {
+  background-color: cadetblue;
+}
+.container {
+  position:absolute;
+  display: inline-block;
+  width: 40%;
+  height: 60%;
+  background-color: burlywood;
+  margin-top: 127px;
+  margin-left: 55vh;
+  text-align: center;
+
+}
+
+.group {
+  font-family: 'Playfair Display', serif;
+  font-feature-settings: "palt";
+  font-size: 60px;
+  line-height: 100px;
+  letter-spacing: 1px;
+}
+
+.grouppage-body {
+  border: 1px solid #707070;
+  opacity: 1;
+  background-size: 1680px;
+  height: 1080px;
+}
+
+.slack-btn {
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.slack-btn-icon {
+  width: 30.2px;
+  height: 30.2px;
+}
