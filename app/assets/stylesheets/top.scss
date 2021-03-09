@@ -6,8 +6,8 @@
   border: 1px solid #707070;
   opacity: 1;
   background-image: image-url("background-image.jpg");
-  background-size: 1680px;
-  height: 1080px;
+  background-size: 100%;
+  min-height: 100vh;
 }
 
 .header-container {
