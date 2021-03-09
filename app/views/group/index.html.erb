@@ -20,15 +20,21 @@
       <% end %>
       <%# ↑ログインしているときしていない表示切り替え %>
       </ul>
-     </div>
-      <div>
+    </div>
+  <div>
+
 <div class ="container">
-<span class= "group">Group</span><br>
-<span>Slackでコミュニティーを作っています！</span><br>
-<%= link_to("https://climbingteamhq.slack.com",class:"slack-btn") do%>
-  <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon' %>
-  <span class = "slack">SlackへのURL</span>
-<% end %>
+  <span class= "group">Group</span><br>
+  <span>Slackでコミュニティーを作っています！</span><br>
+  <span>※Slackへの参加は500円(買い切り)が必要です</span><br>
+  <%# 購入されていないならこちらを表示 %>
+  <%= link_to 'Slackの参加はこちら', new_group_path%><br>
+
+  <%# 購入されているならこちらを表示 %>
+  <%= link_to("https://climbingteamhq.slack.com",class:"slack-btn") do%>
+    <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon' %>
+    <span class = "slack">SlackへのURL</span>
+  <% end %>
 </div>
 </main>
 
