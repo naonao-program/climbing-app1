@@ -25,7 +25,7 @@ class Hour < ActiveHash::Base
     { id: 23, name: '6時' },
     { id: 24, name: '7時' },
     { id: 25, name: '8時' },
-    { id: 26, name: 'わからない'}
+    { id: 26, name: 'わからない' }
   ]
   include ActiveHash::Associations
   has_many :rock_information

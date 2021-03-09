@@ -1,16 +1,16 @@
 FactoryBot.define do
   factory :gym_information do
-    boulder_or_lead_id  {'2'}
-    name                {'あいうえお'}
-    region_id           {'2'}
-    address             {'横浜市'}
-    grade_sence_id      {'2'}
-    people_day_id       {'2'}
-    people_time1_id     {'2'}
-    people_time2_id     {'2'}
-    people_vibe_id      {'2'}
-    clerk_vibe_id       {'2'}
-    other               {'さしすせそ'}
+    boulder_or_lead_id  { '2' }
+    name                { 'あいうえお' }
+    region_id           { '2' }
+    address             { '横浜市' }
+    grade_sence_id      { '2' }
+    people_day_id       { '2' }
+    people_time1_id     { '2' }
+    people_time2_id     { '2' }
+    people_vibe_id      { '2' }
+    clerk_vibe_id       { '2' }
+    other               { 'さしすせそ' }
 
     association :user
 

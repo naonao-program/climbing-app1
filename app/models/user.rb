@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    with_options presence: true do
-    validates :nickname, format: {with: /\A[a-zA-Z0-9]+\z/}
+  with_options presence: true do
+    validates :nickname, format: { with: /\A[a-zA-Z0-9]+\z/ }
     validates :boulder_gym_grade_id
     validates :lead_gym_grade_id
     validates :boulder_rock_grade_id

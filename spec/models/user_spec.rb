@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
         @user.nickname = 'Abc1'
         expect(@user).to be_valid
       end
-      
+
       it 'nicknameが数字でも登録できる' do
         @user.nickname = '111'
         expect(@user).to be_valid
@@ -32,21 +32,21 @@ RSpec.describe User, type: :model do
       it 'nicknameが全角なら登録できない' do
         @user.nickname = 'あいうえお'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is invalid")
+        expect(@user.errors.full_messages).to include('Nickname is invalid')
       end
 
       it 'nicknameが全角数字なら登録できない' do
         @user.nickname = '１２３'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is invalid")
+        expect(@user.errors.full_messages).to include('Nickname is invalid')
       end
 
       it 'nicknameが記号のときは登録できない' do
         @user.nickname = '@#$%'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is invalid")
+        expect(@user.errors.full_messages).to include('Nickname is invalid')
       end
-      
+
       it 'emailが空だと登録できない' do
         @user.email = nil
         @user.valid?
@@ -90,43 +90,43 @@ RSpec.describe User, type: :model do
       it 'boulder_gym_grade_idが{1}の場合は登録できない' do
         @user.boulder_gym_grade_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Boulder gym grade must be other than 1")
+        expect(@user.errors.full_messages).to include('Boulder gym grade must be other than 1')
       end
 
       it 'lead_gym_grade_idが{1}の場合は登録できない' do
         @user.lead_gym_grade_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Lead gym grade must be other than 1")
+        expect(@user.errors.full_messages).to include('Lead gym grade must be other than 1')
       end
 
       it 'boulder_rock_grade_idが{1}の場合は登録できない' do
         @user.boulder_rock_grade_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Boulder rock grade must be other than 1")
+        expect(@user.errors.full_messages).to include('Boulder rock grade must be other than 1')
       end
 
       it 'lead_rock_grade_idが{1}の場合は登録できない' do
         @user.lead_rock_grade_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Lead rock grade must be other than 1")
+        expect(@user.errors.full_messages).to include('Lead rock grade must be other than 1')
       end
 
       it 'gender_idが{1}の場合は登録できない' do
         @user.gender_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Gender must be other than 1")
+        expect(@user.errors.full_messages).to include('Gender must be other than 1')
       end
 
       it 'region_idが{1}の場合は登録できない' do
         @user.region_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Region must be other than 1")
+        expect(@user.errors.full_messages).to include('Region must be other than 1')
       end
 
       it 'age_idが{1}の場合は登録できない' do
         @user.age_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Age must be other than 1")
+        expect(@user.errors.full_messages).to include('Age must be other than 1')
       end
     end
   end
