@@ -19,10 +19,10 @@
       <div>
 <div class ="container">
 <span>Slackでコミュニティーを作っています！</span><br>
-<%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon' %>
-<%=link_to "slack", "https://climbingteamhq.slack.com", class: "slack-btn"%>
-
+<%= link_to("https://climbingteamhq.slack.com",class:"slack-btn") do%>
+  <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon' %>
+  <span class = "slack">SlackへのURL</span>
+<% end %>
 </div>
-<span>Slackでコミュニティーを作っています！</span>
-<span><%=link_to "slack", "https://climbingteamhq.slack.com", class: "slack-btn"%></span>
+
 
