@@ -1,3 +1,27 @@
+<head>
+<script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+</head>
+<div class="group-new">
+  <div class="grouppage-body">
+    <div class= "header-container">
+      <%= link_to "Climbing App",root_path, class: "header-logo"%>
+      <ul class="header-ul">
+        <li class= "header-li"><%= link_to "Gym.",gym_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Rock.",rock_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn"%></li>
+      <%# ログインしているときしていないときで分ける %>
+      <% if user_signed_in?%>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" , class:"header-btn"%></li>
+        <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" , class:"header-btn"%></li>
+      <% else %>
+        <li class= "header-li"><%= link_to "Login.",new_user_session_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path, class:"header-btn"%></li>
+      <% end %>
+      <%# ↑ログインしているときしていない表示切り替え %>
+      </ul>
+    </div>
+  <div>
+  <br>
 <%= form_with model: @group, url: group_index_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
  <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
@@ -35,9 +59,10 @@
         </div>
         <%= f.text_field :cvc,class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4", :size => "28" %>
       </div>
-    </div>
-    <%# /カード情報の入力 %>
-    <div class='buy-btn'>
+      <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
     </div>
+    </div>
+    <%# /カード情報の入力 %>
     <% end %>
+</div>
