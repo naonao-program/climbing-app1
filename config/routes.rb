@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :rock_information, only: %i[index new create]
   resources :gym_information, only: %i[index new create]
-  resources :group, only: %i[index new create]
+  resources :group, only: %i[index]
+  resources :orders, only:[:new,:create]
 end
