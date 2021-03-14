@@ -2,8 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'top#index'
 
-  resources :rock_information, only: %i[index new create]
-  resources :gym_information, only: %i[index new create]
+  resources :rock_information, only: %i[index new create] do
+    collection do
+      get 'search'
+    end
+  end
+  
+  resources :gym_information, only: %i[index new create]do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :group, only: %i[index]
   resources :orders, only:[:new,:create]
 end
