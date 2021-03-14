@@ -31,6 +31,10 @@
     <div class='form-wrap'>
     <%= f.label :number,  "カード番号" %>
     <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+    <div class='available-card'>
+      <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+      <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+    </div>
   </div>
   <div class='form-wrap'>
     <%= f.label :cvc ,"ＣＶＣ" %>
