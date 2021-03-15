@@ -17,6 +17,9 @@ class GymInformationController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def gym_information_params

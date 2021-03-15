@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :gym_information, only: %i[index new create]do
+  resources :gym_information, only: %i[index new create show]do
     collection do
       get 'search'
     end

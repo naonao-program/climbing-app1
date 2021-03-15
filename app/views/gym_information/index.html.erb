@@ -21,7 +21,9 @@
 </div>
 
 <div class="contents row">
-  <% @gym.each do |gym|%>
-    <%= gym.name %>
-  <%end%>
+  <ul class = "gym-lists">
+    <% @gym.each do |gym|%>
+      <li class="list"><%= link_to gym.name %></li>
+    <% end %>
+  </ul>
 </div>
