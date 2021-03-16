@@ -18,4 +18,14 @@ class GymInformation < ApplicationRecord
       validates :clerk_vibe_id
     end
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :boulder_or_lead_id
+  belongs_to_active_hash :region_id
+  belongs_to_active_hash :grade_sence_id
+  belongs_to_active_hash :people_day_id
+  belongs_to_active_hash :people_time1_id
+  belongs_to_active_hash :people_time2_id
+  belongs_to_active_hash :people_vibe_id
+  belongs_to_active_hash :clerk_vibe_id
 end
