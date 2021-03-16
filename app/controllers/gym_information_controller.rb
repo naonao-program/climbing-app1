@@ -1,7 +1,7 @@
 class GymInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   def index
-    @gym = GymInformation.includes(:user).order('created_at DESC')
+    @gyms = GymInformation.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -18,6 +18,7 @@ class GymInformationController < ApplicationController
   end
 
   def show
+    @gym = GymInformation.includes(:user)
   end
 
   private
