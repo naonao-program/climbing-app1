@@ -9,10 +9,10 @@
 .gym-lists {
   position: absolute;
   top:30%;
-  left: 15%;
   width: 100vw;
-  display: flex;
   justify-content: center;
+  float: right;
+  display: flex;
 }
 .list {
   margin-bottom: 30px;
@@ -22,4 +22,11 @@
   font-size: 150%;
   text-align: center;
   display: inline;
+}
+
+.gym-image {
+  width: 50%;
+  position:relative;
+  width: 33vh;
+  height: 33vh;
 }

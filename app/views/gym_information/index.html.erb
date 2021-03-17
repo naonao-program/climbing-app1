@@ -27,7 +27,7 @@
         <%= link_to gym_information_path(gym.id) do %>
           <div class= "item-img-content">
             <% gym.images.each do |image|%>
-              <%= image_tag image%>
+              <%= image_tag image, class: 'gym-image'%>
             <%end%>
             <div class = "item-name">
               <%= gym.name%>
