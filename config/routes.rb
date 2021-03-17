@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :group, only: %i[index]
   resources :orders, only:[:new,:create]
+
+  resources :users, only: :show
 end
