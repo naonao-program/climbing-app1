@@ -8,25 +8,33 @@
 
 .gym-lists {
   position: absolute;
-  top:30%;
-  width: 100vw;
+  top:10vw;
+  width: 90vw;
   justify-content: center;
   float: right;
   display: flex;
 }
+
 .list {
-  margin-bottom: 30px;
+  padding-left: 120px;
 }
 
 .item-name {
-  font-size: 150%;
   text-align: center;
   display: inline;
+  font-size: 2.5vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .gym-image {
-  width: 50%;
   position:relative;
-  width: 33vh;
-  height: 33vh;
+  width: 23vh;
+  height: 23vh;
+}
+
+.gym-name {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
 }
