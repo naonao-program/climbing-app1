@@ -1,6 +1,8 @@
 class RockInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  def index; end
+  def index
+    @rock = RockInformation.includes(:user).order('created_at DESC')
+  end
 
   def new
     @rock = RockInformation.new
@@ -13,6 +15,10 @@ class RockInformationController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @rock = RockInformation.includes(:user)
   end
 
   private
