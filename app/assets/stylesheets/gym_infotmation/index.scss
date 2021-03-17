@@ -2,14 +2,39 @@
   background-color: rgb(247, 169, 208);
 }
 
-.contents {
-  position: absolute;
-  text-align: center;
-  top: 32%;
-  left: 20%;
-  display: inline-block;
+.item-img-content {
+  display: inline;
 }
 
-.gym-contents {
-  padding-bottom: 50px;
+.gym-lists {
+  position: absolute;
+  top:10vw;
+  width: 90vw;
+  justify-content: center;
+  float: right;
+  display: flex;
+}
+
+.list {
+  padding-left: 120px;
+}
+
+.item-name {
+  text-align: center;
+  display: inline;
+  font-size: 2.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gym-image {
+  position:relative;
+  width: 23vh;
+  height: 23vh;
+}
+
+.gym-name {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
 }

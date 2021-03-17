@@ -17,7 +17,7 @@
         <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn"%></li>
       <%# ログインしているときしていないときで分ける %>
       <% if user_signed_in?%>
-        <li><%= link_to current_user.nickname, "#", class: "user-nickname" , class:"header-btn"%></li>
+        <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" , class:"header-btn"%></li>
         <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" , class:"header-btn"%></li>
       <% else %>
         <li class= "header-li"><%= link_to "Login.",new_user_session_path, class:"header-btn"%></li>
@@ -36,9 +36,11 @@
         <%= link_to rock_information_path(rock.id) do %>
           <div class= "item-img-content">
             <% rock.images.each do |image|%>
-              <%= image_tag image%>
+              <%= image_tag image, class: 'gym-image'%>
             <%end%>
-            <%= rock.name%>
+            <div class = "item-name">
+              <%= rock.name%>
+            </div>
           </div>
         <% end %>
       </li>
