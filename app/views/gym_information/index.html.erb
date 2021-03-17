@@ -1,0 +1,38 @@
+<div class="gym-index">
+ <div class="grouppage-body">
+    <div class= "header-container">
+      <%= link_to "Climbing App",root_path, class: "header-logo"%>
+      <ul class="header-ul">
+        <li class= "header-li"><%= link_to "Gym.",gym_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Rock.",rock_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn"%></li>
+      <%# ログインしているときしていないときで分ける %>
+      <% if user_signed_in?%>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" , class:"header-btn"%></li>
+        <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" , class:"header-btn"%></li>
+      <% else %>
+        <li class= "header-li"><%= link_to "Login.",new_user_session_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path, class:"header-btn"%></li>
+      <% end %>
+      <%# ↑ログインしているときしていない表示切り替え %>
+      </ul>
+    </div>
+  <div>
+</div>
+
+<div class="contents row">
+  <ul class = "gym-lists">
+    <% @gyms.each do |gym|%>
+      <li class= "list">
+        <%= link_to gym_information_path(gym.id) do %>
+          <div class= "item-img-content">
+            <% gym.images.each do |image|%>
+              <%= image_tag image%>
+            <%end%>
+            <%= gym.name%>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
