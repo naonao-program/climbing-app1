@@ -36,9 +36,11 @@
         <%= link_to rock_information_path(rock.id) do %>
           <div class= "item-img-content">
             <% rock.images.each do |image|%>
-              <%= image_tag image%>
+              <%= image_tag image, class: 'gym-image'%>
             <%end%>
-            <%= rock.name%>
+            <div class = "item-name">
+              <%= rock.name%>
+            </div>
           </div>
         <% end %>
       </li>

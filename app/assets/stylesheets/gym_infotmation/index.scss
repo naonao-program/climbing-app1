@@ -2,14 +2,24 @@
   background-color: rgb(247, 169, 208);
 }
 
-.contents {
-  position: absolute;
-  text-align: center;
-  top: 32%;
-  left: 20%;
-  display: inline-block;
+.item-img-content {
+  display: inline;
 }
 
-.gym-contents {
-  padding-bottom: 50px;
+.gym-lists {
+  position: absolute;
+  top:30%;
+  left: 15%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.list {
+  margin-bottom: 30px;
+}
+
+.item-name {
+  font-size: 150%;
+  text-align: center;
+  display: inline;
 }

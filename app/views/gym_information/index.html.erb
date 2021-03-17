@@ -29,7 +29,9 @@
             <% gym.images.each do |image|%>
               <%= image_tag image%>
             <%end%>
-            <%= gym.name%>
+            <div class = "item-name">
+              <%= gym.name%>
+            </div>
           </div>
         <% end %>
       </li>
