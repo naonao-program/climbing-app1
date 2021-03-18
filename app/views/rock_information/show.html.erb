@@ -1,0 +1,51 @@
+<h1>岩情報詳細ページ</h1>
+<% @rocks.images.each do |image|%>
+  <%= image_tag image,class: 'gym-images'%>
+<% end %>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">エリア名</th>
+      <td class="detail-value"><%= @rocks.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">岩場の形態</th>
+      <td class="detail-value"><%= @rocks.boulder_or_lead.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">地域</th>
+      <td class="detail-value"><%= @rocks.region.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">住所</th>
+      <td class="detail-value"><%= @rocks.address%></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">その他</th>
+      <td class="detail-value"><%= @rocks.other%></td>
+    </tr>
+  </tbody>
+</table>
