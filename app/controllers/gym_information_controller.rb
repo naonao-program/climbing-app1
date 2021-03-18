@@ -22,6 +22,14 @@ class GymInformationController < ApplicationController
     @gyms = GymInformation.find(params[:id])
   end
 
+  def destroy
+    @gym = GymInformation.find(params[:id])
+    if current_user.id == @rock.user_id
+      @gym.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def gym_information_params

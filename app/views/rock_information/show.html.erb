@@ -3,6 +3,7 @@
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
 
+<%= link_to "削除", rock_information_path(@rocks.id), method: :delete%>
 <table class="detail-table">
   <tbody>
     <tr>
@@ -39,7 +40,68 @@
   </tbody>
 </table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">岩質</th>
+      <td class="detail-value"><%= @rocks.rock_quality.name%></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">シーズン</th>
+      <td class="detail-value"><%= @rocks.season1.name%>~<%= @rocks.season2.name %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ナイトクライミング</th>
+      <td class="detail-value"><%= @rocks.night.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">課題のグレード感</th>
+      <td class="detail-value"><%= @rocks.grade_sence.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない日</th>
+      <td class="detail-value"><%= @rocks.people_day.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない時間帯</th>
+      <td class="detail-value"><%= @rocks.people_time1.name%>~<%= @rocks.people_time2.name %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">岩場の雰囲気</th>
+      <td class="detail-value"><%= @rocks.people_vibe.name%></td>
+    </tr>
+  </tbody>
+</table>
 
 <table class="detail-table">
   <tbody>

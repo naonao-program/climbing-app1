@@ -2,6 +2,8 @@
 <% @gyms.images.each do |image|%>
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
+
+<%= link_to "削除", gym_information_path(@gyms.id), method: :delete %>
 <table class="detail-table">
   <tbody>
     <tr>
