@@ -18,7 +18,8 @@ class GymInformationController < ApplicationController
   end
 
   def show
-    @gym = GymInformation.includes(:user)
+    @gym = GymInformation.all
+    @gyms = GymInformation.find(params[:id])
   end
 
   private

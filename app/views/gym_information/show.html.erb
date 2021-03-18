@@ -1,3 +1,94 @@
-<% @gym.each do |gym|%>
-  <%= gym.name %>
+<h1>ジム情報詳細ページ</h1>
+<% @gyms.images.each do |image|%>
+  <%= image_tag image,class: 'gym-images'%>
 <% end %>
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジム名</th>
+      <td class="detail-value"><%= @gyms.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジムの形態</th>
+      <td class="detail-value"><%= @gyms.boulder_or_lead.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">地域</th>
+      <td class="detail-value"><%= @gyms.region.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">住所</th>
+      <td class="detail-value"><%= @gyms.address%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">課題の難しさ</th>
+      <td class="detail-value"><%= @gyms.grade_sence.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない日</th>
+      <td class="detail-value"><%= @gyms.people_day.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない時間</th>
+      <td class="detail-value"><%= @gyms.people_time1.name%>~<%= @gyms.people_time2.name %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジム(お客さんの雰囲気)</th>
+      <td class="detail-value"><%= @gyms.people_vibe.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">店員さんの雰囲気</th>
+      <td class="detail-value"><%= @gyms.clerk_vibe.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">その他</th>
+      <td class="detail-value"><%= @gyms.other%></td>
+    </tr>
+  </tbody>
+</table>
