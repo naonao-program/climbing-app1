@@ -1,1 +1,50 @@
-<%= @gyms.name%>
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジム名</th>
+      <td class="detail-value"><%= @gyms.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジムの形態</th>
+      <td class="detail-value"><%= @gyms.boulder_or_lead.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">地域</th>
+      <td class="detail-value"><%= @gyms.region.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">住所</th>
+      <td class="detail-value"><%= @gyms.address%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">課題の難しさ</th>
+      <td class="detail-value"><%= @gyms.grade_sence.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
