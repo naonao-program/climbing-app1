@@ -22,6 +22,10 @@ class GymInformationController < ApplicationController
     @gyms = GymInformation.find(params[:id])
   end
 
+  def edit
+    @gym = GymInformation.find(params[:id])
+  end
+
   def destroy
     @gym = GymInformation.find(params[:id])
     if current_user.id == @rock.user_id

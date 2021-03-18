@@ -2,7 +2,7 @@
 <% @rocks.images.each do |image|%>
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
-
+<%= link_to '編集', edit_rock_information_path, method: :get%>
 <%= link_to "削除", rock_information_path(@rocks.id), method: :delete%>
 <table class="detail-table">
   <tbody>

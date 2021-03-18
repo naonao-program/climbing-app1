@@ -21,6 +21,10 @@ class RockInformationController < ApplicationController
     @rocks = RockInformation.find(params[:id])
   end
 
+  def edit
+    @rock = RockInformation.find(params[:id])
+  end
+
   def destroy
     @rock = RockInformation.find(params[:id])
     if current_user.id == @rock.user_id
