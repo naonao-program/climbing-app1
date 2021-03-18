@@ -18,7 +18,7 @@ class RockInformationController < ApplicationController
   end
 
   def show
-    @rock = RockInformation.includes(:user)
+    @rocks = RockInformation.find(params[:id])
   end
 
   private
