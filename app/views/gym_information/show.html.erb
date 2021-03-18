@@ -44,7 +44,47 @@
   </tbody>
 </table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない日</th>
+      <td class="detail-value"><%= @gyms.people_day.name%></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">人の少ない時間</th>
+      <td class="detail-value"><%= @gyms.people_time1.name%>~<%= @gyms.people_time2.name %></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">ジム(お客さんの雰囲気)</th>
+      <td class="detail-value"><%= @gyms.people_vibe.name%></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">店員さんの雰囲気</th>
+      <td class="detail-value"><%= @gyms.clerk_vibe.name%></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">その他</th>
+      <td class="detail-value"><%= @gyms.other%></td>
+    </tr>
+  </tbody>
+</table>

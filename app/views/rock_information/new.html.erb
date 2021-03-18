@@ -39,9 +39,9 @@
 
   <span>岩場のシーズン</span>
   <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:season1_id, Season.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+  <%= f.collection_select(:season1_id, Season1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   <%= "〜"%>
-  <%= f.collection_select(:season2_id, Season.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  <%= f.collection_select(:season2_id, Season2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
 
   <span>ナイトクライミング</span>
   <span class="indispensable">必須</span><br/>
@@ -54,17 +54,17 @@
   <%# この時間帯に関しては横並びにしてみる？？ 文字 下セレクト%>
   <span>人が少ない日</span>
   <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_day_id, Day.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <%= f.collection_select(:people_day_id, PeopleDay.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
 
   <span>人が少ない時間</span>
   <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_time1_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+  <%= f.collection_select(:people_time1_id, PeopleTime1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
   <%= "〜"%>
-  <%= f.collection_select(:people_time2_id, Hour.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <%= f.collection_select(:people_time2_id, PeopleTime2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
 
   <span>岩場の雰囲気</span>
   <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_vibe_id, Vibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <%= f.collection_select(:people_vibe_id, PeopleVibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
   
   <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
   <%= f.text_field :other%><br>
