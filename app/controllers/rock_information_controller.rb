@@ -26,7 +26,12 @@ class RockInformationController < ApplicationController
   end
 
   def update
-    
+    @rock = RockInformation.find(params[:id])
+    if @rock.update(rock_information_params)
+      redirect_to rock_information_path
+    else
+      render :edit
+    end
   end
 
   def destroy
