@@ -1,5 +1,5 @@
 class RockInformationController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create edit update ]
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
   end
@@ -23,6 +23,10 @@ class RockInformationController < ApplicationController
 
   def edit
     @rock = RockInformation.find(params[:id])
+  end
+
+  def update
+    
   end
 
   def destroy

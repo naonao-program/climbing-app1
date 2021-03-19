@@ -1,0 +1,79 @@
+<%= form_with(model: @rock, url:rock_information_index_path, local: true) do |f| %>
+<div class="field_with_errors">
+  <%= render 'shared/error_messages', model: f.object %>
+</div>
+  <div class="img-upload">
+    <div class="weight-bold-text">
+       岩場の写真
+       <span class="indispensable">必須</span><br/>
+    </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+       </p>
+      <%= f.file_field :images, name:'rock_information[images][]', id:"item-image" %>
+      <div id = "image-list"></div>
+    </div>
+  </div>
+  <%# /出品画像 %>
+<span>現在投稿されている画像</span><br>
+<% @rock.images.each do |image| %>
+  <%= image_tag image, class: 'images'%>
+<% end%>
+
+  <br><span>スタイル</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
+  <span>岩場の名前</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.text_field :name%><br/>
+
+  <span>岩場の地域</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:region_id,Region.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
+  <span>岩質</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:rock_quality_id, RockQuality.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
+  <span>岩場の住所</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.text_field :address%><br/>
+
+  <span>岩場のシーズン</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:season1_id, Season1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+  <%= "〜"%>
+  <%= f.collection_select(:season2_id, Season2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
+  <span>ナイトクライミング</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:night_id, Night.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  
+  <span>全体的なグレード感</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:grade_sence_id, GradeSence.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <%# この時間帯に関しては横並びにしてみる？？ 文字 下セレクト%>
+  <span>人が少ない日</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_day_id, PeopleDay.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>人が少ない時間</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_time1_id, PeopleTime1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+  <%= "〜"%>
+  <%= f.collection_select(:people_time2_id, PeopleTime2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+
+  <span>岩場の雰囲気</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:people_vibe_id, PeopleVibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  
+  <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
+  <%= f.text_field :other%><br>
+
+  <%= f.submit "投稿する"%>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+<% end %>
+
