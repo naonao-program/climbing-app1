@@ -21,4 +21,17 @@ class RockInformation < ApplicationRecord
       validates :people_vibe_id
     end
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :boulder_or_lead
+  belongs_to_active_hash :region
+  belongs_to_active_hash :rock_quality
+  belongs_to_active_hash :season1
+  belongs_to_active_hash :season2
+  belongs_to_active_hash :night
+  belongs_to_active_hash :grade_sence
+  belongs_to_active_hash :people_day
+  belongs_to_active_hash :people_time1
+  belongs_to_active_hash :people_time2
+  belongs_to_active_hash :people_vibe
 end
