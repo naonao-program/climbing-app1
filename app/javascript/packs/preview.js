@@ -13,6 +13,8 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
        const blobImage = document.createElement('img')
        blobImage.setAttribute('src', blob)
 
+      // 画像プレビューのサイズ調整
+
        //  ファイル選択ボタンを生成
        const inputHTML = document.createElement('input')
        inputHTML.setAttribute('id', `rock_information_image_${imageElementNum}`)

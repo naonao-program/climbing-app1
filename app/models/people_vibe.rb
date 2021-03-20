@@ -1,4 +1,4 @@
-class Vibe < ActiveHash::Base
+class PeopleVibe < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: 'ワイワイしている' },

@@ -1,5 +1,5 @@
 class RockInformationController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create edit update ]
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
   end
@@ -18,7 +18,28 @@ class RockInformationController < ApplicationController
   end
 
   def show
-    @rock = RockInformation.includes(:user)
+    @rocks = RockInformation.find(params[:id])
+  end
+
+  def edit
+    @rock = RockInformation.find(params[:id])
+  end
+
+  def update
+    @rock = RockInformation.find(params[:id])
+    if @rock.update(rock_information_params)
+      redirect_to rock_information_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @rock = RockInformation.find(params[:id])
+    if current_user.id == @rock.user_id
+      @rock.destroy
+      redirect_to root_path
+    end
   end
 
   private

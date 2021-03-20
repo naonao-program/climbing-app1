@@ -1,4 +1,4 @@
-class Clerk < ActiveHash::Base
+class ClerkVibe < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '明るく接しやすい' },
