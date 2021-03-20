@@ -28,7 +28,7 @@ class GymInformationController < ApplicationController
 
   def update
     @gym = GymInformation.find(params[:id])
-    if @gym.update
+    if @gym.update(gym_information_params)
       redirect_to gym_information_path
     else
       render :edit
