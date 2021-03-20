@@ -7,16 +7,21 @@
 }
 
 .gym-lists {
-  position: absolute;
-  top:10vw;
-  width: 90vw;
-  justify-content: center;
-  float: right;
+  width: 100vw;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 120px;
+  margin-left: 12vh;
 }
 
 .list {
+  margin-right: 160px;
   padding-left: 120px;
+  white-space:nowrap;
+  width: 37vh;
+  padding: 1vw;
+  
 }
 
 .item-name {
@@ -38,3 +43,5 @@
   display: flex;
   justify-content: space-between;
 }
+
+
