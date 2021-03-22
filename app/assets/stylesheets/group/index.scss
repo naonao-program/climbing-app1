@@ -1,5 +1,6 @@
 main {
   background-color: cadetblue;
+  height: cover;
 }
 .container {
   position:absolute;
@@ -22,7 +23,6 @@ main {
 }
 
 .grouppage-body {
-  border: 1px solid #707070;
   opacity: 1;
   background-size: 1680px;
   height: 1080px;
