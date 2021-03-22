@@ -1,7 +1,9 @@
 <div class="gym-index">
  <div class="grouppage-body">
     <div class= "header-container">
-      <%= link_to "Climbing App",root_path, class: "header-logo"%>
+    <ul class = "header-li">
+      <li><%= link_to "Climbing App",root_path, class: "header-logo"%><li>
+    </ul>
       <ul class="header-ul">
         <li class= "header-li"><%= link_to "Gym.",gym_information_index_path, class:"header-btn"%></li>
         <li class= "header-li"><%= link_to "Rock.",rock_information_index_path, class:"header-btn"%></li>
@@ -18,7 +20,6 @@
       </ul>
     </div>
   <div>
-</div>
 
 <div class="contents row">
   <ul class = "gym-lists">
