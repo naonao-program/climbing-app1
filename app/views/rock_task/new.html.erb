@@ -11,9 +11,20 @@
         クリックしてファイルをアップロード
         <span class="indispensable">必須</span><br/>
        </p>
-      <%= f.file_field :image, id:"item-image" %>
+      <%= f.file_field :images, name:'rock_task[images][]', id:"item-image" %>
       <div id = "image-list"></div>
     </div>
   </div>
-  
+  <span>課題の名前</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.text_field :name %><br>
+
+  <span>課題のグレード</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"select-box", id:"grade-category"}) %><br>
+
+  <span>その他(注意することなどありましたら記述お願いします)</span><br>
+  <%= f.text_field :other ,placeholder: "例)下地が安定していないので着地に注意" %><br>
+  <%= f.submit "投稿する"%>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
 <% end %>
