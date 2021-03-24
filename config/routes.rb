@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   resources :group, only: %i[index]
   resources :orders, only:[:new,:create]
 
+  resources :rock_task, only: [:index, :new, :create]
+
   resources :users, only: :show
 end
