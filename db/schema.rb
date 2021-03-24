@@ -82,14 +82,12 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
 
   create_table "rock_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
-    t.integer "grade_id", null: false
+    t.integer "rock_task_grade_id", null: false
     t.text "other"
-    t.bigint "user_id", null: false
-    t.bigint "rock_information_id", null: false
+    t.integer "user_id", null: false
+    t.integer "rock_information_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["rock_information_id"], name: "index_rock_tasks_on_rock_information_id"
-    t.index ["user_id"], name: "index_rock_tasks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,6 +114,4 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
   add_foreign_key "gym_informations", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "rock_informations", "users"
-  add_foreign_key "rock_tasks", "rock_informations"
-  add_foreign_key "rock_tasks", "users"
 end

@@ -1,6 +1,7 @@
 class RockInformation < ApplicationRecord
   belongs_to :user
   has_many_attached :images
+  has_many :rock_tasks
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do

@@ -1,7 +1,7 @@
 class RockTask < ApplicationRecord
   belongs_to :user
-  has_many :images
-  belongs_to :rock_information
+
+  has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
@@ -10,10 +10,10 @@ class RockTask < ApplicationRecord
       validates :name
     end
     with_options numericality: { other_than: 1 } do
-      validates :grade_id
+      validates :rock_task_grade_id
     end
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :grade_id
+  belongs_to_active_hash :rock_task_grade_id
 end

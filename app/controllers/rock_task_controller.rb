@@ -17,6 +17,6 @@ class RockTaskController < ApplicationController
 
   private
   def rock_task_params
-    params.require(:rock_task).permit(:name, :grade_id, :other, images: []).merge(user_id: current_user.id, rock_information: params[:rock_information_id])
+    params.require(:rock_task).permit(:name, :rock_task_grade_id, :other, images: []).merge(user_id: current_user.id, rock_information_id: params[:rock_information_id])
   end
 end

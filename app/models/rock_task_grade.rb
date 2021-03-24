@@ -1,4 +1,4 @@
-class Grade < ActiveHash::Base
+class RockTaskGrade < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '10級' },
