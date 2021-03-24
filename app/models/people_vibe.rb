@@ -2,7 +2,7 @@ class PeopleVibe < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: 'ワイワイしている' },
-    { id: 3, name: '静かに登っている' },
+    { id: 3, name: '落ち着いている' },
     { id: 4, name: 'よくわからない' }
   ]
 
