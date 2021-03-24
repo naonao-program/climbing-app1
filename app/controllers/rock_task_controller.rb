@@ -1,0 +1,2 @@
+class RockTaskController < ApplicationController
+end
