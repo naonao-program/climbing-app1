@@ -22,7 +22,6 @@ class RockInformation < ApplicationRecord
     end
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :boulder_or_lead
   belongs_to_active_hash :region
   belongs_to_active_hash :rock_quality
