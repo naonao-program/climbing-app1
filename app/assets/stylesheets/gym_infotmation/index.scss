@@ -1,27 +1,35 @@
 .gym-index {
-  background-color: rgb(247, 169, 208);
+  background-image: image-url('gym.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.3);
+	background-blend-mode:lighten; 
+}
+
+.header-ul {
+  margin-bottom: 3vh;
 }
 
 .item-img-content {
   display: inline;
 }
 
+
 .gym-lists {
-  width: 100vw;
+  height: 90vh;
+  width: 77vw;
+  margin-left: 25vh;
   display: flex;
   flex-wrap: wrap;
-
-  justify-content:flex-start;
-  margin-top: 120px;
-  margin-left: 22vh;
+  overflow: scroll;
 }
 
 .list {
-  margin-right: 160px;
-  padding-left: 120px;
   white-space:nowrap;
-  width: 37vh;
-  padding: 1vw;
+  width: 35vh;
+  padding: 0.01vw;
+
 }
 
 
@@ -89,5 +97,4 @@ transform: translateX(0%);
 }
 }
 ///↑アニメーション
-
 
