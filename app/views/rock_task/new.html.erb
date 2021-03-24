@@ -1,0 +1,19 @@
+<%= form_with(model: @task, url:rock_task_index_path, local: true) do |f| %>
+<div class="field_with_errors">
+  <%= render 'shared/error_messages', model: f.object %>
+</div>
+  <div class="img-upload">
+    <div class="weight-bold-text">
+       課題の写真(写真に課題のラインなどを書いていただくとわかりやすいです)<br>
+    </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+        <span class="indispensable">必須</span><br/>
+       </p>
+      <%= f.file_field :image, id:"item-image" %>
+      <div id = "image-list"></div>
+    </div>
+  </div>
+  
+<% end %>
