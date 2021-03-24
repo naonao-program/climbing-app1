@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   resources :rock_information, only: %i[index new create show destroy edit update] do
+    resources :rock_task, only: [:index, :new, :create]
     collection do
       get 'search'
     end
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   resources :group, only: %i[index]
   resources :orders, only:[:new,:create]
 
-  resources :rock_task, only: [:index, :new, :create]
+
 
   resources :users, only: :show
 end
