@@ -3,6 +3,7 @@ class RockTaskController < ApplicationController
   end
 
   def new
+    @task = RockTask.new
   end
 
   def create
