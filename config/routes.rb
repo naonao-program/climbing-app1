@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'top#index'
 
-  resources :rock_information, only: %i[index new create show destroy edit update] do
-    resources :rock_task, only: [:index, :new, :create]
+  resources :rock_information do
+    resources :rock_task, only: [:index, :new, :create, :show]
     collection do
       get 'search'
     end

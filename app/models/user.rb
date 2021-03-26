@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :rock_informations
+  has_many :rock_tasks
+
   with_options presence: true do
     validates :nickname, format: { with: /\A[a-zA-Z0-9]+\z/ }
     validates :boulder_gym_grade_id

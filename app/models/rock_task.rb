@@ -1,6 +1,6 @@
 class RockTask < ApplicationRecord
   belongs_to :user
-
+  belongs_to :rock_information
   has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
 
@@ -14,6 +14,6 @@ class RockTask < ApplicationRecord
     end
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :rock_task_grade
   
 end

@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
     t.text "name", null: false
     t.integer "rock_task_grade_id", null: false
     t.text "other"
-    t.integer "user_id", null: false
-    t.integer "rock_information_id", null: false
+    t.integer "user_id"
+    t.integer "rock_information_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
