@@ -20,7 +20,7 @@ class RockInformationController < ApplicationController
   def show
     @rocks = RockInformation.find(params[:id])
     @task = RockTask.new
-    @tasks = RockTask.includes(:user).order('created_at DESC')
+    @tasks = @rocks.rock_tasks.includes(:user)
   end
 
   def edit

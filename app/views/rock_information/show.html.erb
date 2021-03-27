@@ -117,9 +117,22 @@
 <div class = "rock-tasks">
 <h1><%= @rocks.name%>課題情報</h1>
 <%= link_to '課題の投稿はこちら',new_rock_information_rock_task_path(@rocks.id) %>
-<%# 課題一覧 %>
-<%= link_to '課題一覧はこちら', rock_information_rock_task_index_path(@rocks.id)%>
 </div>
-<%# 新規投稿 %>
 
 <%# 課題一覧 %>
+<div class="contents row">
+  <ul class = "gym-lists">
+    <% @tasks.each do |task| %>
+    <%# <%= link_to rock_information_rock_task_path(task.id) do%> 
+      <li class= "list">
+        <% task.images.each do |image| %>
+          <%= image_tag image%>
+        <%= task.name%>
+        <%= task.rock_task_grade.name%>
+        <%= task.other%>
+        <% end %>
+      </li>
+    <%# <% end %> 
+    <% end %>
+  </ul>
+</div>

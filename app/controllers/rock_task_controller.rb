@@ -1,8 +1,5 @@
 class RockTaskController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  def index
-    @task = RockTask.includes(:rock_information)
-  end
 
   def new
     @task = RockTask.new
@@ -11,7 +8,7 @@ class RockTaskController < ApplicationController
   def create
     @task = RockTask.new(rock_task_params)
     if @task.save
-      redirect_to root_path
+      redirect_to "/rock_information/#{@task.rock_information_id}"
     else
       render :new
     end
