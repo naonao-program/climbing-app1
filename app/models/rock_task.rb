@@ -1,9 +1,11 @@
 class RockTask < ApplicationRecord
   belongs_to :user
   belongs_to :rock_information
+  has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
+    validates :images
     with_options uniqueness: true do
       validates :name
     end

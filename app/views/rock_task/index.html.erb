@@ -1,0 +1,15 @@
+<div class="contents row">
+  <ul class = "gym-lists">
+    <% @tasks.each do |task| %>
+      <li class= "list">
+        <%= link_to rock_task_path(task.id) do%>
+          <div class = "item-name">
+            <%= task.name%>
+            <%= task.rock_task_grade.name%>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+</div>
