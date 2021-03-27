@@ -1,7 +1,7 @@
 class RockTaskController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @tasks = RockTask.includes(:user)
+    @task = RockTask.includes(:rock_information)
   end
 
   def new

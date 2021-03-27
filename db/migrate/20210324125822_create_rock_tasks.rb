@@ -4,8 +4,8 @@ class CreateRockTasks < ActiveRecord::Migration[6.0]
       t.text :name,null:false
       t.integer :rock_task_grade_id,null:false
       t.text :other
-      t.references :user, null:false, foreign_key: true
-      t.references :rock_information, null:false, foreign_key: true
+      t.integer :user_id, null:false
+      t.integer :rock_information_id, null:false
       t.timestamps
     end
   end

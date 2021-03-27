@@ -1,15 +1,14 @@
 <div class="contents row">
   <ul class = "gym-lists">
-    <% @tasks.each do |task| %>
+    <% @task.each do |task| %>
       <li class= "list">
-        <%= link_to rock_task_path(task.id) do%>
-          <div class = "item-name">
-            <%= task.name%>
-            <%= task.rock_task_grade.name%>
-          </div>
+        <% task.images.each do |image| %>
+          <%= image_tag image%>
+        <%= task.name%>
+        <%= task.rock_task_grade.name%>
+        <%= task.other%>
         <% end %>
       </li>
     <% end %>
   </ul>
-</div>
 </div>

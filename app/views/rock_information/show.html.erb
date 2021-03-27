@@ -118,10 +118,8 @@
 <h1><%= @rocks.name%>課題情報</h1>
 <%= link_to '課題の投稿はこちら',new_rock_information_rock_task_path(@rocks.id) %>
 <%# 課題一覧 %>
-<%= link_to '課題一覧はこちら'%>
+<%= link_to '課題一覧はこちら', rock_information_rock_task_index_path(@rocks.id)%>
 </div>
-<%# 課題一覧 %>
-
 <%# 新規投稿 %>
 
-
+<%# 課題一覧 %>

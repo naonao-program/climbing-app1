@@ -19,8 +19,8 @@ class RockInformationController < ApplicationController
 
   def show
     @rocks = RockInformation.find(params[:id])
+    @task = RockTask.new
     @tasks = RockTask.includes(:user).order('created_at DESC')
-    # どのrock_informationの投稿なのかを書く
   end
 
   def edit
