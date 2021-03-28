@@ -123,7 +123,7 @@
 <div class="contents row">
   <ul class = "gym-lists">
     <% @tasks.each do |task| %>
-      <%= link_to rock_information_rock_task_path(task.id), method: :get do%> 
+      <%= link_to rock_information_rock_task_path(task.id) do%> 
         <li class= "list">
           <% task.images.each do |image| %>
             <%= image_tag image%>
@@ -131,8 +131,8 @@
             <%= task.rock_task_grade.name%>
             <%= task.other%>
          <% end %>
-      </li>
-    <% end %> 
+         </li>
+      <% end %> 
     <% end %>
   </ul>
 </div>
