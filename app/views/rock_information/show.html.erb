@@ -1,16 +1,16 @@
 <h1>岩情報詳細ページ</h1>
-<% @rocks.images.each do |image|%>
+<% @rock.images.each do |image|%>
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
-<% if user_signed_in? && @rocks.user_id == current_user.id%>
+<% if user_signed_in? && @rock.user_id == current_user.id%>
   <%= link_to '編集', edit_rock_information_path, method: :get%>
-  <%= link_to "削除", rock_information_path(@rocks.id), method: :delete%>
+  <%= link_to "削除", rock_information_path(@rock.id), method: :delete%>
 <% end %>
 <table class="detail-table">
   <tbody>
     <tr>
       <th class="detail-item">エリア名</th>
-      <td class="detail-value"><%= @rocks.name%></td>
+      <td class="detail-value"><%= @rock.name%></td>
     </tr>
   </tbody>
 </table>
@@ -19,7 +19,7 @@
   <tbody>
     <tr>
       <th class="detail-item">スタイル</th>
-      <td class="detail-value"><%= @rocks.boulder_or_lead.name%></td>
+      <td class="detail-value"><%= @rock.boulder_or_lead.name%></td>
     </tr>
   </tbody>
 </table>
@@ -28,7 +28,7 @@
   <tbody>
     <tr>
       <th class="detail-item">地域</th>
-      <td class="detail-value"><%= @rocks.region.name%></td>
+      <td class="detail-value"><%= @rock.region.name%></td>
     </tr>
   </tbody>
 </table>
@@ -37,7 +37,7 @@
   <tbody>
     <tr>
       <th class="detail-item">住所</th>
-      <td class="detail-value"><%= @rocks.address%></td>
+      <td class="detail-value"><%= @rock.address%></td>
     </tr>
   </tbody>
 </table>
@@ -46,7 +46,7 @@
   <tbody>
     <tr>
       <th class="detail-item">岩質</th>
-      <td class="detail-value"><%= @rocks.rock_quality.name%></td>
+      <td class="detail-value"><%= @rock.rock_quality.name%></td>
     </tr>
   </tbody>
 </table>
@@ -55,7 +55,7 @@
   <tbody>
     <tr>
       <th class="detail-item">シーズン</th>
-      <td class="detail-value"><%= @rocks.season1.name%>~<%= @rocks.season2.name %></td>
+      <td class="detail-value"><%= @rock.season1.name%>~<%= @rock.season2.name %></td>
     </tr>
   </tbody>
 </table>
@@ -64,7 +64,7 @@
   <tbody>
     <tr>
       <th class="detail-item">ナイトクライミング</th>
-      <td class="detail-value"><%= @rocks.night.name%></td>
+      <td class="detail-value"><%= @rock.night.name%></td>
     </tr>
   </tbody>
 </table>
@@ -73,7 +73,7 @@
   <tbody>
     <tr>
       <th class="detail-item">課題のグレード感</th>
-      <td class="detail-value"><%= @rocks.grade_sence.name%></td>
+      <td class="detail-value"><%= @rock.grade_sence.name%></td>
     </tr>
   </tbody>
 </table>
@@ -82,7 +82,7 @@
   <tbody>
     <tr>
       <th class="detail-item">人の少ない日</th>
-      <td class="detail-value"><%= @rocks.people_day.name%></td>
+      <td class="detail-value"><%= @rock.people_day.name%></td>
     </tr>
   </tbody>
 </table>
@@ -91,7 +91,7 @@
   <tbody>
     <tr>
       <th class="detail-item">人の少ない時間帯</th>
-      <td class="detail-value"><%= @rocks.people_time1.name%>~<%= @rocks.people_time2.name %></td>
+      <td class="detail-value"><%= @rock.people_time1.name%>~<%= @rock.people_time2.name %></td>
     </tr>
   </tbody>
 </table>
@@ -100,7 +100,7 @@
   <tbody>
     <tr>
       <th class="detail-item">岩場の雰囲気</th>
-      <td class="detail-value"><%= @rocks.people_vibe.name%></td>
+      <td class="detail-value"><%= @rock.people_vibe.name%></td>
     </tr>
   </tbody>
 </table>
@@ -109,30 +109,30 @@
   <tbody>
     <tr>
       <th class="detail-item">その他</th>
-      <td class="detail-value"><%= @rocks.other%></td>
+      <td class="detail-value"><%= @rock.other%></td>
     </tr>
   </tbody>
 </table>
 
 <div class = "rock-tasks">
-<h1><%= @rocks.name%>課題情報</h1>
-<%= link_to '課題の投稿はこちら',new_rock_information_rock_task_path(@rocks.id) %>
+<h1><%= @rock.name%>課題情報</h1>
+<%= link_to '課題の投稿はこちら',new_rock_information_rock_task_path(@rock.id) %>
 </div>
 
 <%# 課題一覧 %>
 <div class="contents row">
   <ul class = "gym-lists">
     <% @tasks.each do |task| %>
-    <%# <%= link_to rock_information_rock_task_path(task.id) do%> 
-      <li class= "list">
-        <% task.images.each do |image| %>
+      <%= link_to rock_information_rock_task_path(task.id) do%> 
+        <li class= "list">
+          <% task.images.each do |image| %>
           <%= image_tag image%>
-        <%= task.name%>
-        <%= task.rock_task_grade.name%>
-        <%= task.other%>
-        <% end %>
+          <%= task.name%>
+          <%= task.rock_task_grade.name%>
+          <%= task.other%>
+         <% end %>
       </li>
-    <%# <% end %> 
+    <% end %> 
     <% end %>
   </ul>
 </div>
