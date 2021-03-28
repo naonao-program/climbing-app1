@@ -1,6 +1,7 @@
 class RockInformation < ApplicationRecord
   belongs_to :user
   has_many_attached :images
+  has_many :rock_tasks
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
@@ -22,7 +23,6 @@ class RockInformation < ApplicationRecord
     end
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :boulder_or_lead
   belongs_to_active_hash :region
   belongs_to_active_hash :rock_quality

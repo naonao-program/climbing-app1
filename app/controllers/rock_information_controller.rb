@@ -1,5 +1,6 @@
 class RockInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update ]
+  before_action :set_rock_information, only:[:show,:edit,:update,:destroy]
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
   end
@@ -18,15 +19,15 @@ class RockInformationController < ApplicationController
   end
 
   def show
-    @rocks = RockInformation.find(params[:id])
+    @task = RockTask.new
+    @tasks = @rock.rock_tasks.includes(:user)
   end
 
   def edit
-    @rock = RockInformation.find(params[:id])
   end
 
   def update
-    @rock = RockInformation.find(params[:id])
+
     if @rock.update(rock_information_params)
       redirect_to rock_information_path
     else
@@ -35,7 +36,6 @@ class RockInformationController < ApplicationController
   end
 
   def destroy
-    @rock = RockInformation.find(params[:id])
     if current_user.id == @rock.user_id
       @rock.destroy
       redirect_to root_path
@@ -47,5 +47,9 @@ class RockInformationController < ApplicationController
   def rock_information_params
     params.require(:rock_information).permit(:boulder_or_lead_id, :name, :region_id, :rock_quality_id, :address,
                                              :season1_id, :season2_id, :night_id, :grade_sence_id, :people_day_id, :people_time1_id, :people_time2_id, :people_vibe_id, :other, images: []).merge(user_id: current_user.id)
+  end
+
+  def set_rock_information
+    @rock = RockInformation.find(params[:id])
   end
 end
