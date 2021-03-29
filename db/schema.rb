@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
     t.string "name", null: false
     t.integer "region_id", null: false
     t.string "address", null: false
+    t.integer "business_hours1_id", null: false
+    t.integer "business_hours2_id", null: false
     t.integer "grade_sence_id", null: false
     t.integer "people_day_id", null: false
     t.integer "people_time1_id", null: false

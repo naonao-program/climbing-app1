@@ -35,6 +35,10 @@
   <span class="indispensable">必須</span><br/>
   <%= f.text_field :address%><br/>
 
+  <span>営業時間</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:business_hours1_id,BusinessHours1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>〜<%= f.collection_select(:business_hours2_id,BusinessHours2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+
   <span>全体的なグレード感</span>
   <span class="indispensable">必須</span><br>
   <%= f.collection_select(:grade_sence_id, GradeSence.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>

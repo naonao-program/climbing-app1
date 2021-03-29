@@ -11,6 +11,8 @@ class GymInformation < ApplicationRecord
       validates :boulder_or_lead_id
       validates :region_id
       validates :grade_sence_id
+      validates :business_hours1_id
+      validates :business_hours2_id
       validates :people_day_id
       validates :people_day_id
       validates :people_time1_id
