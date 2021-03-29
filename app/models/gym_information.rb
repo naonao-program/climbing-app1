@@ -31,4 +31,6 @@ class GymInformation < ApplicationRecord
   belongs_to_active_hash :people_time2
   belongs_to_active_hash :people_vibe
   belongs_to_active_hash :clerk_vibe
+  belongs_to_active_hash :business_hours1
+  belongs_to_active_hash :business_hours2
 end

@@ -14,9 +14,19 @@ class RockTaskController < ApplicationController
     end
   end
 
+  def edit
+    @task = RockTask.find(params[:id])
+  end
+
   def show
     @rock = RockInformation.find(params[:rock_information_id])
     @task = RockTask.find(params[:id])
+  end
+
+  def destroy
+    @task = RockTask.find(params[:rock_information_id])
+    @task.destroy
+    redirect_to root_path
   end
 
   private
