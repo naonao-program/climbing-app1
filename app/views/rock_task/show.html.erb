@@ -3,7 +3,7 @@
   <%= image_tag image, class: 'gym-images' %>
 <% end %>
 <% if user_signed_in? && @task.user_id == current_user.id %>
-  <%= link_to '編集', edit_rock_information_rock_task_path %>
+  <%= link_to '編集', edit_rock_information_rock_task_path, method: :get %>
 <% end %>
 <table class="detail-table">
   <tbody>

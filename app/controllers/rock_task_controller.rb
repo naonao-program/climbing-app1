@@ -15,7 +15,7 @@ class RockTaskController < ApplicationController
   end
 
   def edit
-    @task = RockTask.find(params[:id])
+    @task = RockTask.find(params[:rock_information_id])
   end
 
   def update
@@ -28,8 +28,8 @@ class RockTaskController < ApplicationController
   end
 
   def show
- 
-    @task = RockTask.find(params[:id])
+    @rock = RockInformation.find(params[:id])
+    @task = RockTask.find(params[:rock_information_id])
   end
 
 
