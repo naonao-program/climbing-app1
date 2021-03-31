@@ -4,7 +4,6 @@
 <% end %>
 <% if user_signed_in? && @task.user_id == current_user.id %>
   <%= link_to '編集', edit_rock_information_rock_task_path %>
-  <%= link_to '削除', rock_information_rock_task_path(@task.id,@rock.id), method: :delete%>
 <% end %>
 <table class="detail-table">
   <tbody>
@@ -32,3 +31,5 @@
     </tr>
   </tbody>
 </table>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
   create_table "rock_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
     t.integer "rock_task_grade_id", null: false
+    t.string "youtube_url"
     t.text "other"
     t.integer "user_id", null: false
     t.integer "rock_information_id", null: false

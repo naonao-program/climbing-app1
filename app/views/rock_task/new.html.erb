@@ -23,6 +23,9 @@
   <span class="indispensable">必須</span><br>
   <%= f.collection_select(:rock_task_grade_id, RockTaskGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"}) %><br>
 
+  <span>課題のYouTubeのURL</span><br>
+  <%= f.text_field(:youtube_url, placeholder: 'YoutubeのURL')%><br>
+
   <span>その他(注意することなどありましたら記述お願いします)</span><br>
   <%= f.text_field :other ,placeholder: "例)下地が安定していないので着地に注意" %><br>
   <%= f.submit "投稿する"%>
