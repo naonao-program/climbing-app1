@@ -1,0 +1,30 @@
+<%= form_with(model: [@task], url:rock_information_rock_task_path, method: :put, local: true) do |f| %>
+<div class="field_with_errors">
+  <%= render 'shared/error_messages', model: f.object %>
+</div>
+  <div class="img-upload">
+    <div class="weight-bold-text">
+       課題の写真（課題の登るラインを写真に書いてもらうとわかりやすいです）
+       <span class="indispensable">必須</span><br/>
+    </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+       </p>
+      <%= f.file_field :images, name:'rock_task[images][]', id:"item-image" %>
+      <div id = "image-list"></div>
+    </div>
+  </div>
+  <span>課題の名前</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.text_field :name %><br>
+
+  <span>課題のグレード</span>
+  <span class="indispensable">必須</span><br>
+  <%= f.collection_select(:rock_task_grade_id, RockTaskGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"}) %><br>
+
+  <span>その他(注意することなどありましたら記述お願いします)</span><br>
+  <%= f.text_field :other ,placeholder: "例)下地が安定していないので着地に注意" %><br>
+  <%= f.submit "投稿する"%>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+<% end %>
