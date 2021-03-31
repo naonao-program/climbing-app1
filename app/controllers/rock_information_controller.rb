@@ -27,7 +27,6 @@ class RockInformationController < ApplicationController
   end
 
   def update
-
     if @rock.update(rock_information_params)
       redirect_to rock_information_path
     else
