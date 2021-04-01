@@ -32,6 +32,9 @@ class RockTaskController < ApplicationController
     @task = RockTask.find(params[:rock_information_id])
   end
 
+  def destroy
+  end
+
 
 
   private
