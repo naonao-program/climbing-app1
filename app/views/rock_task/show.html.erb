@@ -4,7 +4,7 @@
 <% end %>
 <% if user_signed_in? && @task.user_id == current_user.id %>
   <%= link_to '編集', edit_rock_information_rock_task_path, method: :get %>
-  <%# <%= link_to '削除', rock_information_rock_task_path, method: :delete %> 
+  <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete %> 
 <% end %>
 <table class="detail-table">
   <tbody>

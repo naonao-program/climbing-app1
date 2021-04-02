@@ -33,6 +33,11 @@ class RockTaskController < ApplicationController
   end
 
   def destroy
+    @task = RockTask.find(params[:rock_information_id])
+    if current_user.id == @task.user_id
+      @task.destroy
+      redirect_to "/rock_information/#{@task.rock_information_id}"
+    end
   end
 
 
