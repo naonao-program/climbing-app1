@@ -1,6 +1,10 @@
-<%= form_with(model: @gym, local: true) do |f| %>
-<%= render 'shared/error_messages', model: f.object%>
-  <%# 画像 %>
+<div class = "post-page">
+  <%= link_to "Climbing App",root_path, class: "post-header-logo"%>
+  <div class = "post">
+    <%= form_with(model: @gym, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object%>
+      <%# 画像 %>
+  <ul>
   <div class="img-upload">
     <div class="weight-bold-text">
        ジムの写真
@@ -9,20 +13,23 @@
     <div class="click-upload">
       <p>
         クリックしてファイルをアップロード
-       </p>
+      </p>
       <%= f.file_field :images, name:'gym_information[images][]', id:"item-image"%>
       <div id = "image-list"></div>
     </div>
   </div>
   <%# ↑画像 %>
 
-  <span>スタイル</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  <span>ジムの基本情報</span>
+  <div class= "style">
+    <span>スタイル</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  </div>
 
   <span>ジムの名前</span>
   <span class="indispensable">必須</span><br/>
-  <%= f.text_field :name%><br/>
+  <%= f.text_field :name, class: "text-field"%><br/>
 
   <span>ジムの地域</span>
   <span class="indispensable">必須</span><br/>
@@ -30,7 +37,11 @@
   
   <span>ジムの住所</span>
   <span class="indispensable">必須</span><br/>
-  <%= f.text_field :address%><br/>
+  <%= f.text_field :address, class: "text-field"%><br/>
+
+  <span>営業時間</span>
+  <span class="indispensable">必須</span><br/>
+  <%= f.collection_select(:business_hours1_id,BusinessHours1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>〜<%= f.collection_select(:business_hours2_id,BusinessHours2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
 
   <span>全体的なグレード感</span>
   <span class="indispensable">必須</span><br>
@@ -57,7 +68,10 @@
   <%# 液チョーク✕など %>
   <span>その他（ジムでの注意•ルールなどあれば記述してください）</span><br>
   <%= f.text_field :other%><br>
-
-  <%= f.submit "投稿する"%>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </ul><br>
+  <%= f.submit "投稿する", class: "btn btn--orange btn-c"%>
+  <%=link_to 'もどる', root_path, class:"btn btn--orange btn-c" %>
 <% end %>
+
+</div>
+</div>
