@@ -65,12 +65,21 @@
   <span class="indispensable">必須</span><br>
   <%= f.collection_select(:clerk_vibe_id, ClerkVibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
   
-  <%# 液チョーク✕など %>
-  <span>その他（ジムでの注意•ルールなどあれば記述してください）</span><br>
-  <%= f.text_field :other%><br>
+  <div class= "field">
+    <span>ホームページのURL</span>
+    <%= f.text_field :gym_url, class: "text-field"%><br/>
+  </div>
+
+  <div class= "field">
+    <span>SNSのURL</span>
+    <%= f.text_field :gym_sns_url, class: "text-field"%><br/>
+  </div>
+  
+    <span>その他（ジムでの注意•ルールなどあれば記述してください）</span><br>
+    <%= f.text_field :other, placeholder: '例)粉チョーク✕'%><br>
   </ul><br>
   <%= f.submit "投稿する", class: "btn btn--orange btn-c"%>
-  <%=link_to 'もどる', root_path, class:"btn btn--orange btn-c" %>
+  <%=link_to 'もどる', gym_information_path, class:"btn btn--orange btn-c" %>
 <% end %>
 
 </div>
