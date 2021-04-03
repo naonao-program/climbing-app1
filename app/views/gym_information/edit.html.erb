@@ -20,7 +20,12 @@
   </div>
   <%# ↑画像 %>
 
-  <span>ジムの基本情報</span>
+  <span>現在投稿されている画像</span><br>
+  <% @gym.images.each do |image| %>
+    <%= image_tag image, class: 'images'%>
+  <% end%><br>
+
+  <span>•ジムの基本情報</span>
   <div class= "style">
     <span>スタイル</span>
     <span class="indispensable">必須</span><br/>
