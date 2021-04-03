@@ -1,14 +1,28 @@
 .post-page {
-  
+  background-image: image-url("gym-post.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.5);
+	background-blend-mode:lighten; 
+  width: 184vh;
+  height: 100vh;
 }
 .post-header-logo {
+  position: absolute;
+  margin-top: 18px;
+  display: inline-block;
   font-family: SignPainter;
   font-size: 55px;
-  width: 140vh;
-  margin-left: 140vh;
+  color: #ffffff;
+  margin-left: 80vh;
+  height: 10vh;
 }
 
 .post {
+  width: 110vh;
+  background-color:rgba(255, 255, 255, 0.3);
   position: absolute;
+  margin-top: 13vh;
   margin-left: 35vh;
 }

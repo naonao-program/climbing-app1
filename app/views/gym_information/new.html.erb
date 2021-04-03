@@ -1,9 +1,9 @@
 <div class = "post-page">
-<%= link_to "Climbing App",root_path, class: "post-header-logo"%>
-<div class = "post">
-<%= form_with(model: @gym, url:gym_information_index_path, local: true) do |f| %>
-<%= render 'shared/error_messages', model: f.object%>
-  <%# 画像 %>
+  <%= link_to "Climbing App",root_path, class: "post-header-logo"%>
+  <div class = "post">
+    <%= form_with(model: @gym, url:gym_information_index_path, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object%>
+      <%# 画像 %>
   <div class="img-upload">
     <div class="weight-bold-text">
        ジムの写真
