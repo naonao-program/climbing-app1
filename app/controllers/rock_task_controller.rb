@@ -7,6 +7,7 @@ class RockTaskController < ApplicationController
 
   def create
     @task = RockTask.new(rock_task_params)
+    binding.pry
     if @task.save
       redirect_to "/rock_information/#{@task.rock_information_id}"
     else
@@ -15,12 +16,21 @@ class RockTaskController < ApplicationController
   end
 
   def show
-    @rock = RockInformation.find(params[:rock_information_id])
-    @task = RockTask.find(params[:id])
+    @task = RockTask.find(params[:rock_information_id])
   end
+
+  def destroy
+    @task = RockTask.find(params[:rock_information_id])
+    if current_user.id == @task.user_id
+      @task.destroy
+      redirect_to "/rock_information/#{@task.rock_information_id}"
+    end
+  end
+
+
 
   private
   def rock_task_params
-    params.require(:rock_task).permit(:name, :rock_task_grade_id, :other, images: []).merge(user_id: current_user.id, rock_information_id: params[:rock_information_id])
+    params.require(:rock_task).permit(:name, :rock_task_grade_id, :youtube_url, :other, images: []).merge(user_id: current_user.id, rock_information_id: params[:rock_information_id])
   end
 end

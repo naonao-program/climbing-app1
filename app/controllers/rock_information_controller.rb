@@ -12,7 +12,7 @@ class RockInformationController < ApplicationController
   def create
     @rock = RockInformation.new(rock_information_params)
     if @rock.save
-      redirect_to root_path
+      redirect_to rock_information_index_path
     else
       render :new
     end
@@ -27,7 +27,6 @@ class RockInformationController < ApplicationController
   end
 
   def update
-
     if @rock.update(rock_information_params)
       redirect_to rock_information_path
     else

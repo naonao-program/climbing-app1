@@ -1,0 +1,38 @@
+<h1>岩課題情報投稿</h1>
+<% @task.images.each do |image| %>
+  <%= image_tag image, class: 'gym-images' %>
+<% end %>
+<% if user_signed_in? && @task.user_id == current_user.id %>
+  <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete %> 
+<% end %>
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">課題名</th>
+      <td class="detail-value"><%= @task.name%></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">グレード</th>
+      <td class="detail-value"><%= @task.rock_task_grade.name %><td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">その他<br>注意することなど</th>
+      <td class="detail-value"><%= @task.other %><td>
+    </tr>
+  </tbody>
+</table>
+
+<span>この課題の動画</span>
+<div class = "youtube">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
