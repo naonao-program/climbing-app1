@@ -21,10 +21,10 @@
 
 .post {
   width: 110vh;
-  height: 80vh;
+  height: 88vh;
   background-color:rgba(255, 255, 255, 0.3);
   position: absolute;
-  margin-top: 13vh;
+  margin-top: 11vh;
   margin-left: 35vh;
   padding-bottom: 30px;
   display: flex;
@@ -123,4 +123,12 @@ input {
 
 .field_with_errors {
   display: contents;
+}
+
+.field {
+  padding-bottom: 10px;
+}
+
+.img-upload {
+  padding-bottom: 10px;
 }
