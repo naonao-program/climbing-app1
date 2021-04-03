@@ -7,6 +7,7 @@ class RockTaskController < ApplicationController
 
   def create
     @task = RockTask.new(rock_task_params)
+    binding.pry
     if @task.save
       redirect_to "/rock_information/#{@task.rock_information_id}"
     else
@@ -14,21 +15,7 @@ class RockTaskController < ApplicationController
     end
   end
 
-  def edit
-    @task = RockTask.find(params[:rock_information_id])
-  end
-
-  def update
-    @task = RockTask.find(params[:rock_information_id])
-    if @task.update(rock_task_params)
-      redirect_to "/rock_information/#{@task.rock_information_id}"
-    else
-      render :edit
-    end
-  end
-
   def show
-    @rock = RockInformation.find(params[:id])
     @task = RockTask.find(params[:rock_information_id])
   end
 
