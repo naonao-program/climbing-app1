@@ -1,7 +1,10 @@
-<%= form_with(model: @rock, local: true) do |f| %>
-<div class="field_with_errors">
-  <%= render 'shared/error_messages', model: f.object %>
-</div>
+<div class= "rock-post-page">
+  <%= link_to "Climbing App",root_path, class: "post-header-logo"%>
+  <div class= "post">
+  <%= form_with(model: @rock, local: true) do |f| %>
+  <div class="field_with_errors">
+    <%= render 'shared/error_messages', model: f.object %>
+  </div>
   <div class="img-upload">
     <div class="weight-bold-text">
        岩場の写真
@@ -16,63 +19,89 @@
     </div>
   </div>
   <%# /出品画像 %>
-<span>現在投稿されている画像</span><br>
-<% @rock.images.each do |image| %>
-  <%= image_tag image, class: 'images'%>
-<% end%>
 
-  <br><span>スタイル</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
-
-  <span>岩場の名前</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.text_field :name%><br/>
-
-  <span>岩場の地域</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:region_id,Region.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
-
-  <span>岩質</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:rock_quality_id, RockQuality.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
-
-  <span>岩場の住所</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.text_field :address%><br/>
-
-  <span>岩場のシーズン</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:season1_id, Season1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
-  <%= "〜"%>
-  <%= f.collection_select(:season2_id, Season2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
-
-  <span>ナイトクライミング</span>
-  <span class="indispensable">必須</span><br/>
-  <%= f.collection_select(:night_id, Night.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <span>現在投稿されている画像</span><br>
+  <% @rock.images.each do |image| %>
+    <%= image_tag image, class: 'images'%>
+  <% end %><br>
   
-  <span>全体的なグレード感</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:grade_sence_id, GradeSence.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <div class="field">
+    <span>スタイル</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:boulder_or_lead_id,BoulderOrLead.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  </div>
 
-  <%# この時間帯に関しては横並びにしてみる？？ 文字 下セレクト%>
-  <span>人が少ない日</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_day_id, PeopleDay.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <div class= "field">
+    <span>岩場の名前</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.text_field :name, size:"50vh"%><br/>
+  </div>
 
-  <span>人が少ない時間</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_time1_id, PeopleTime1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
-  <%= "〜"%>
-  <%= f.collection_select(:people_time2_id, PeopleTime2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <div class= "field">
+    <span>岩場の地域</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:region_id,Region.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  </div>
 
-  <span>岩場の雰囲気</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:people_vibe_id, PeopleVibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  <div class= "field">
+    <span>岩質</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:rock_quality_id, RockQuality.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  </div>
+
+  <div class= "field">
+    <span>岩場の住所</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.text_field :address, size:"50vh"%><br/>
+  </div>
+
+  <div class= "field">
+    <span>岩場のシーズン</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:season1_id, Season1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= "〜"%>
+    <%= f.collection_select(:season2_id, Season2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br/>
+  </div>
+
+  <div class="field">
+    <span>ナイトクライミング</span>
+    <span class="indispensable">必須</span><br/>
+    <%= f.collection_select(:night_id, Night.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  </div>
   
-  <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
-  <%= f.text_field :other%><br>
+  <div class= "field">
+    <span>全体的なグレード感</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.collection_select(:grade_sence_id, GradeSence.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  </div>
 
-  <%= f.submit "投稿する"%>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <div class= "field">
+    <span>人が少ない日</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.collection_select(:people_day_id, PeopleDay.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  </div>
+
+  <div class="field">
+    <span>人が少ない時間</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.collection_select(:people_time1_id, PeopleTime1.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%>
+    <%= "〜"%>
+    <%= f.collection_select(:people_time2_id, PeopleTime2.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  </div>
+
+  <div class= "field">
+    <span>岩場の雰囲気</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.collection_select(:people_vibe_id, PeopleVibe.all, :id, :name, {}, {class:"select-box", id:"grade-category"})%><br>
+  </div>
+  
+  <div class= "field">
+    <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
+    <%= f.text_field :other, class: 'text_field', size:"50vh"%><br>
+  </div>
+
+  <%= f.submit "投稿する",class: "btn btn--orange btn-c"%>
+  <%=link_to 'もどる', rock_information_index_path, class: "btn btn--orange btn-c" %>
 <% end %>
+</div>
+</div>

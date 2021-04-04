@@ -29,7 +29,7 @@
   <div class= "field">
     <span>岩場の名前</span>
     <span class="indispensable">必須</span><br/>
-    <%= f.text_field :name%><br/>
+    <%= f.text_field :name, size:"50vh"%><br/>
   </div>
 
   <div class= "field">
@@ -47,7 +47,7 @@
   <div class= "field">
     <span>岩場の住所</span>
     <span class="indispensable">必須</span><br/>
-    <%= f.text_field :address%><br/>
+    <%= f.text_field :address, size:"50vh"%><br/>
   </div>
 
   <div class= "field">
@@ -92,7 +92,7 @@
   
   <div class= "field">
     <span>その他（岩場での注意•ルールなどあれば記述してください）</span><br>
-    <%= f.text_field :other%><br>
+    <%= f.text_field :other, class: 'text_field', size:"50vh"%><br>
   </div>
 
   <%= f.submit "投稿する", class: "btn btn--orange btn-c" %>
