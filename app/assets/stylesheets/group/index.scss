@@ -1,6 +1,5 @@
 main {
   background-color: cadetblue;
-  height: cover;
 }
 .container {
   position:absolute;
@@ -25,7 +24,6 @@ main {
 .grouppage-body {
   opacity: 1;
   background-size: 1680px;
-  height: 1080px;
 }
 
 .slack-btn {
@@ -36,4 +34,15 @@ main {
 .slack-btn-icon {
   width: 30.2px;
   height: 30.2px;
+}
+
+.group-page {
+  background-image: image-url('group-index.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.5);
+	background-blend-mode:lighten; 
+  width: 184vh;
+  height: 100vh;
 }

@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
 </head>
 <div class="group-new">
-  <div class="grouppage-body">
+  <div class= "buy-page">
     <div class= "header-container">
       <%= link_to "Climbing App",root_path, class: "header-logo"%>
       <ul class="header-ul">
@@ -22,35 +22,47 @@
     </div>
   <div>
   <br>
-<div class= "buy-page">
-<%= form_with  model: @order, id: 'charge-form', class: 'card-form',local: true do |f| %>
+  <div class= "order">
+  <%= form_with  model: @order, id: 'charge-form', class: 'card-form',local: true do |f| %>
   <%= render 'shared/error_messages', model: @order %>
-  <div class='form-wrap'>
-    <%= f.label :price, "金額" %>
-    <%= f.text_field :price, class:"price", placeholder:"「500」と入力してください！" %>
-  </div>
+  
+  <div class="form-field">
     <div class='form-wrap'>
-    <%= f.label :number,  "カード番号" %>
-    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+      <%= f.label :price, "金額" %><br>
+      <%= f.text_field :price, class:"price", value: '500',placeholder:"「500」と入力してください！" ,size: 30%>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class='form-wrap'>
+      <%= f.label :number,  "カード番号" %><br>
+      <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16", size: 30%>
     <div class='available-card'>
       <%= image_tag 'card-visa.gif', class: 'card-logo'%>
       <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
     </div>
-  </div>
-  <div class='form-wrap'>
-    <%= f.label :cvc ,"ＣＶＣ" %>
-    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
-  </div>
-  <div class='form-wrap'>
-    <p>有効期限</p>
-    <div class='input-expiration-date-wrap'>
-      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
-      <p>月</p>
-      <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
-      <p>年</p>
     </div>
   </div>
-  <%= f.submit "購入" ,class:"button" %>
+
+  <div class="form-field">
+    <div class='form-wrap'>
+      <%= f.label :cvc ,"ＣＶＣ" %><br>
+      <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4", size: 30 %>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class='form-wrap'>
+      <p>有効期限</p>
+      <div class='input-expiration-date-wrap'>
+        <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
+        <p>月</p>
+        <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
+        <p>年</p>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "購入" , class: "btn btn--orange btn-c buy" %>
 <% end %>
 </div>
 </div>
