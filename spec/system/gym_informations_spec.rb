@@ -52,3 +52,47 @@ RSpec.describe "Gym情報投稿", type: :system do
     end
   end
 end
+
+RSpec.describe "Gym情報編集", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @gym1 = FactoryBot.create(:gym_information)
+    @gym2 = FactoryBot.create(:gym_information)
+    @gym_image = Faker::Lorem.sentence
+  end
+  context 'ジム情報編集' do
+    it 'ログインしたユーザーは自分が投稿した投稿したものを編集ができる' do
+      # ツイート1を投稿したユーザーでログインする
+      sign_in(@gym1.user)
+      # 編集ページへ遷移する
+      visit edit_gym_information_path(@gym1)
+      # すでに投稿済みの内容がフォームに入っていることを確認する
+      expect(
+        find('#gym_information_name').value
+      ).to eq 'あいうえお'
+
+      expect(
+        find('#gym_information_address').value
+      ).to eq '横浜市'
+
+      expect(
+        find('#gym_information_gym_url').value
+      ).to eq 'https://www.google.com/'
+
+      expect(
+        find('#gym_information_gym_sns_url').value
+      ).to eq 'https://www.google.com/'
+
+      expect(
+        find('#gym_information_other').value
+      ).to eq 'さしすせそ'
+      # 投稿するボタンを押してもユーザーモデルのカウントは上がらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change{GymInformation.count}.by(0)
+
+      # トップページに戻ることを確認する
+      expect(current_path).to eq gym_information_path(@gym1)
+    end
+  end
+end
