@@ -43,3 +43,12 @@ RSpec.describe "Gym情報投稿", type: :system do
       # GymInformation indexページに行くとさきほど投稿したものがある
     end
   end
+  context 'Gym情報投稿できないとき' do
+    it 'ログインしていない場合は投稿できない' do
+      # トップページに遷移する
+      visit root_path
+      # 新規投稿ページへのリンクがない
+      expect(page).to have_no_content('ジム情報投稿')
+    end
+  end
+end
