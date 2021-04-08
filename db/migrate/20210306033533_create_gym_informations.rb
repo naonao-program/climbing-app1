@@ -13,6 +13,8 @@ class CreateGymInformations < ActiveRecord::Migration[6.0]
       t.integer :people_time2_id, null: false
       t.integer :people_vibe_id, null: false
       t.integer :clerk_vibe_id, null: false
+      t.string :gym_url
+      t.string :gym_sns_url
       t.text :other
       t.references :user, null: false, foreign_key: true
       t.timestamps

@@ -1,0 +1,29 @@
+.field_with_errors {
+  display: contents;
+}
+
+img {
+  width: 30%;
+  height: 30%;
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.rock-post-page {
+  background-image: image-url("rock-post1.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.1);
+  background-blend-mode:lighten; 
+  width: 188vh;
+  height: 100vh;
+}

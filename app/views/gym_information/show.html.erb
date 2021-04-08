@@ -100,6 +100,24 @@
 <table class="detail-table">
   <tbody>
     <tr>
+      <th class="detail-item">ホームページ</th>
+      <td class="detail-value"><%= link_to "#{@gyms.name}のホームページはこちら","#{@gyms.gym_url}", target: :_blank, rel: "noopener noreferrer" %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">SNS</th>
+      <td class="detail-value"><%= link_to "#{@gyms.name}のSNSはこちら", "#{@gyms.gym_sns_url}", target: :_blank, rel: "noopener noreferrer" %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="detail-table">
+  <tbody>
+    <tr>
       <th class="detail-item">その他</th>
       <td class="detail-value"><%= @gyms.other%></td>
     </tr>

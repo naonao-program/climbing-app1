@@ -1,14 +1,133 @@
 .post-page {
-  
+  background-image: image-url("gym-post1.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.5);
+	background-blend-mode:lighten; 
+  width: 184vh;
+  height: 100vh;
 }
 .post-header-logo {
+  position: absolute;
+  margin-top: 18px;
+  display: inline-block;
   font-family: SignPainter;
   font-size: 55px;
-  width: 140vh;
-  margin-left: 140vh;
+  color: #ffffff;
+  margin-left: 80vh;
+  height: 10vh;
 }
 
 .post {
+  width: 110vh;
+  height: 88vh;
+  background-color:rgba(255, 255, 255, 0.7);
   position: absolute;
+  margin-top: 11vh;
   margin-left: 35vh;
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
+
+// アニメーション
+.post {
+  animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(40px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1.0);
+  }
+  80%, 100% {
+    opacity: 1;
+  }
+}
+ 
+.anim-box.popup.is-animated {
+  animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+}
+ 
+@keyframes popup {
+  0% {
+    transform: translateY(40px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1.0);
+  }
+  80%, 100% {
+    opacity: 1;
+  }
+}
+// ↑アニメーション
+
+.text-field {
+  width: 50vh;
+}
+
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+.btn {
+  color: #fff;
+  background-color: rgba(57, 128, 165, 0.71);
+}
+
+.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.btn-c {
+  font-size: 15px;
+  width: 40vh;
+  position: relative;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin-left: 85px;
+  border: none;
+}
+
+.btn-c i.fa {
+  margin-right: 1rem;
+}
+
+
+
+.field_with_errors {
+  display: contents;
+}
+
+.field {
+  padding-bottom: 10px;
+}
+
+.img-upload {
+  padding-bottom: 10px;
+}
+

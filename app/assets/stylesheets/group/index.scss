@@ -1,17 +1,19 @@
 main {
   background-color: cadetblue;
-  height: cover;
 }
 .container {
   position:absolute;
   display: inline-block;
-  width: 40%;
-  height: 60%;
-  background-color: burlywood;
   margin-top: 127px;
-  margin-left: 55vh;
+  margin-left: 15vh;
   text-align: center;
-
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.5);
+	background-blend-mode:lighten; 
+  width: 154vh;
+  height: 80vh;
+  overflow: scroll;
 }
 
 .group {
@@ -25,7 +27,6 @@ main {
 .grouppage-body {
   opacity: 1;
   background-size: 1680px;
-  height: 1080px;
 }
 
 .slack-btn {
@@ -36,4 +37,166 @@ main {
 .slack-btn-icon {
   width: 30.2px;
   height: 30.2px;
+}
+
+.group-page {
+  background-image: image-url('group-index.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.5);
+	background-blend-mode:lighten; 
+  width: 184vh;
+  height: 100vh;
+}
+
+.slack_join {
+  width: 200px;
+  height: 50px;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: rgba(57, 128, 165, 0.71);
+  color: rgb(234, 248, 255);
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  filter: none;
+  -webkit-transition: all 0.3s;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.slack_join:hover {
+  color: #fff;
+}
+.slack-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.group-price {
+  color: rgba(0, 0, 0, 0.47);
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.group-future {
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  margin-bottom: 3px;
+  border-bottom: 5px solid rgb(109, 161, 188);
+  display: inline-block;
+  margin-top: 30px;
+}
+
+.group-futures{
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-top: 13px;
+  padding-bottom: 40px;
+}
+
+.group-future-contents-number {
+  width: 28.6px;
+  height: 26px;
+  display: table;
+  background-color: rgb(36, 44, 85);
+  border-radius: 50%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+
+.group-future-contents-title {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.group-future-contents-main1-title {
+  margin-left: 10px;
+  color: rgb(36, 44, 85);
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.group-future-contents-main {
+  margin-top: 30px;
+  background-color: rgb(213, 236, 248);
+  padding: 30px;
+  box-sizing: border-box;
+  color: rgb(95, 95, 95);
+  width: 140vh;
+  margin-left: 8vh;
+  margin-bottom: 30px;
+}
+
+.group-future-contents-main1-contents {
+  display: grid;
+  grid-template-columns: 650px 1fr;
+  column-gap: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 5vh;
+}
+
+.slack-screen {
+  width: 20%;
+  height: 20%;
+  margin-left: 10vh;
+}
+
+
+.slack_url {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: rgba(57, 128, 165, 0.71);
+  color: rgb(234, 248, 255);
+  font-size: 18px;
+  letter-spacing: 0.30em;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  filter: none;
+  -webkit-transition: all 0.3s;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-right: 30px;
+}
+
+.slack_url-icon {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: rgb(234, 248, 255);
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  filter: none;
+  -webkit-transition: all 0.3s;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
 }

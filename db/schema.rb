@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2021_03_24_125822) do
     t.integer "people_time2_id", null: false
     t.integer "people_vibe_id", null: false
     t.integer "clerk_vibe_id", null: false
+    t.string "gym_url"
+    t.string "gym_sns_url"
     t.text "other"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

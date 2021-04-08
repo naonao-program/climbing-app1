@@ -4,12 +4,16 @@ FactoryBot.define do
     name                { 'あいうえお' }
     region_id           { '2' }
     address             { '横浜市' }
+    business_hours1_id  { '2' }
+    business_hours2_id  { '2' }
     grade_sence_id      { '2' }
     people_day_id       { '2' }
     people_time1_id     { '2' }
     people_time2_id     { '2' }
     people_vibe_id      { '2' }
     clerk_vibe_id       { '2' }
+    gym_url             { 'https://www.google.com/' }
+    gym_sns_url         { 'https://www.google.com/'}
     other               { 'さしすせそ' }
 
     association :user

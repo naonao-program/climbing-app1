@@ -1,3 +1,6 @@
+<div class="rock-task-page">
+<%= link_to "Climbing App",root_path, class: "post-header-logo"%>
+<div class="post">
 <%= form_with(model: [@task], url:rock_information_rock_task_index_path, local: true) do |f| %>
 <div class="field_with_errors">
   <%= render 'shared/error_messages', model: f.object %>
@@ -15,19 +18,32 @@
       <div id = "image-list"></div>
     </div>
   </div>
-  <span>課題の名前</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.text_field :name %><br>
 
-  <span>課題のグレード</span>
-  <span class="indispensable">必須</span><br>
-  <%= f.collection_select(:rock_task_grade_id, RockTaskGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"}) %><br>
+  <div class="field">
+    <span>課題の名前</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.text_field :name %><br>
+  </div>
 
-  <span>課題のYouTubeのURL</span><br>
-  <%= f.text_field(:youtube_url, placeholder: 'YoutubeのURL')%><br>
+  <div class="field">
+    <span>課題のグレード</span>
+    <span class="indispensable">必須</span><br>
+    <%= f.collection_select(:rock_task_grade_id, RockTaskGrade.all, :id, :name, {}, {class:"select-box", id:"grade-category"}) %><br>
+  </div>
 
-  <span>その他(注意することなどありましたら記述お願いします)</span><br>
-  <%= f.text_field :other ,placeholder: "例)下地が安定していないので着地に注意" %><br>
-  <%= f.submit "投稿する"%>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <div class="field">
+    <span>課題のYouTubeのURL</span><br>
+    <%= image_tag 'youtube1.png', class: 'youtube-img'%><br>
+    <%= f.text_field(:youtube_url, placeholder: 'YoutubeのURL')%><br>
+  </div>
+
+  <div class="field">
+    <span>その他(注意することなどありましたら記述お願いします)</span><br>
+    <%= f.text_field :other ,placeholder: "例)下地が安定していないので着地に注意" %><br>
+  </div>
+
+    <%= f.submit "投稿する", class: "btn btn--orange btn-c"%>
+    <%=link_to 'もどる', root_path, class: "btn btn--orange btn-c" %>
 <% end %>
+</div>
+</div>

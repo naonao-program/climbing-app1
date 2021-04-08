@@ -7,7 +7,6 @@ class RockTaskController < ApplicationController
 
   def create
     @task = RockTask.new(rock_task_params)
-    binding.pry
     if @task.save
       redirect_to "/rock_information/#{@task.rock_information_id}"
     else
