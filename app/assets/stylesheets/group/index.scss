@@ -104,3 +104,51 @@ main {
   margin-top: 13px;
   padding-bottom: 40px;
 }
+
+.group-future-contents-number {
+  width: 28.6px;
+  height: 26px;
+  display: table;
+  background-color: rgb(36, 44, 85);
+  border-radius: 50%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+
+.group-future-contents-title {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.group-future-contents-main1-title {
+  margin-left: 10px;
+  color: rgb(36, 44, 85);
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.group-future-contents-main {
+  margin-top: 30px;
+  background-color: rgb(213, 236, 248);
+  padding: 30px;
+  box-sizing: border-box;
+  color: rgb(95, 95, 95);
+  width: 100vh;
+  margin-left: 2vh;
+}
+
+.group-future-contents-main1-contents {
+  display: grid;
+  grid-template-columns: 650px 1fr;
+  column-gap: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 5vh;
+}
