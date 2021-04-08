@@ -30,15 +30,15 @@
 
     <%# 購入されていないならこちらを表示 %>
   <% if Order.exists?(user_id: @user)%>
-  <%= link_to("https://climbingteamhq.slack.com",class:"slack-btn") do%>
-    <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon' %>
+  <%= link_to("https://climbingteamhq.slack.com",class:"slack-btn slack_url") do%>
+    <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon slack_url-icon' %>
     <span class = "slack">SlackへのURL</span>
   <% end %>
   <% else %>
     <%# 購入されているならこちらを表示 %>
     <%= link_to 'Join / 入会', new_order_path, class: 'slack_join'%><br>
   <% end %>
-  <div class = group-price>¥500 / 1 MONTH</div>
+  <div class = group-price>¥500 / Outright Purchase</div>
   <h1 class="group-future">Futures</h1>
   <div class="group-futures">コミュニティーの特徴</div>
   <div class="group-future-contents" style="font-weight: bold;">「週末登りに行きたいけど、一人では少し行きにくい」<br>「この場所行ってみたいけど、初めてでわからないから知ってる人に聞いてみたい」<br>「遠征行く人が見つからない」<br>「この課題について登ったときのイメージを聞いてみたい」<br>そういった悩みを解決する場所です。</div>
@@ -47,8 +47,32 @@
       <div class="group-future-contents-number">1</div>
       <div class="group-future-contents-main1-title">一緒に登る仲間を探す</div><br>
       <div class="group-future-contents-main1-contents">一緒に登る仲間がいない、欲しいと思ったことありませんか？<br>コミュニティでは、そういった人向けのチャンネルを設けています。</div>
-      
+      <%= image_tag 'Slack-Screen', class: 'slack-screen'%>
+  </div>
+  </div>
+
+  <div class="group-future-contents-main">
+    <div class="group-future-contents-title">
+      <div class="group-future-contents-number">2</div>
+      <div class="group-future-contents-main1-title">わからないことを<br>他のクライマーに聞ける</div><br>
+      <div class="group-future-contents-main1-contents">ClimbingAppに載っていない情報、非公開エリアの情報などを<br>コミュニティ内で会話ができます</div>
+      <%= image_tag 'Slack-Screen', class: 'slack-screen'%>
   </div>
 </div>
+
+  <h1 class="group-future">Message</h1>
+  <div class="group-futures">メッセージ</div>
+  <div class="group-future-contents" style="font-weight: bold;">クライミングを通じて、一人でも多くの人が登れたときの最高の景色を見れるように<br>人とつながる「コミュニティ」という一つの選択肢はどうでしょう？<br></div>
+      <%# 購入されていないならこちらを表示 %>
+    <%# 購入されていないならこちらを表示 %>
+  <% if Order.exists?(user_id: @user)%>
+  <%= link_to("https://climbingteamhq.slack.com",class:"slack-btn slack_url") do%>
+    <%= image_tag 'slack.png',size: '50×50', class: 'slack-btn-icon slack_url-icon' %>
+    <span class = "slack">SlackへのURL</span>
+  <% end %>
+  <% else %>
+    <%# 購入されているならこちらを表示 %>
+    <%= link_to 'Join / 入会', new_order_path, class: 'slack_join'%><br>
+  <% end %>
 </main>
 </div>
