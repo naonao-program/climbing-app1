@@ -128,6 +128,10 @@ RSpec.describe "Gym情報削除", type: :system do
       #ボタンが有ることを確認
       has_button?('削除')
       #ボタンを押すとトップページへ行く
+      expect{
+        find('a[data-method="delete"').click
+      }.to change { GymInformation.count }.by(-1)
+      expect(current_path).to eq root_path
     end
   end
 
