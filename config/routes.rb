@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :gym_information, only: %i[index new create show edit update]do
+  resources :gym_information, only: %i[index new create show edit update destroy]do
     collection do
       get 'search'
     end
