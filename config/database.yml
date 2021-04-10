@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: climbing_app1_production
-  username: climbing_app1
-  password: <%= ENV['CLIMBING_APP1_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
