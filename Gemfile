@@ -77,3 +77,11 @@ gem 'jquery-rails'
 gem "aws-sdk-s3", require: false
 
 gem "mimemagic", "~> 0.3.10"
+
+gem "gmaps4rails"
+
+gem "geocoder"
+
+gem "gon"
+
+gem "dotenv-rails"

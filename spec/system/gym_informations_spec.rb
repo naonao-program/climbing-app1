@@ -41,6 +41,11 @@ RSpec.describe "Gym情報投稿", type: :system do
       # トップページへ遷移したことを確認する
       expect(current_path).to eq(root_path)
       # GymInformation indexページに行くとさきほど投稿したものがある
+      visit gym_information_index_path
+      # 投稿したものがあることを確認
+      expect(page).to have_content("#{@gym.name}")
+      expect(page).to have_content("#{@gym.region.name}")
+      expect(page).to have_selector("img[src$='test_image.png']")
     end
   end
   context 'Gym情報投稿できないとき' do
@@ -147,6 +152,57 @@ RSpec.describe "Gym情報削除", type: :system do
       visit gym_information_path(@gym1)
       # ボタンがないことがある
       has_no_button?('編集')
+    end
+  end
+end
+
+RSpec.describe "Gym情報詳細表示", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @gym1 = FactoryBot.create(:gym_information)
+    @gym2 = FactoryBot.create(:gym_information)
+    @gym_image = Faker::Lorem.sentence
+  end
+
+  context 'ジム情報詳細表示が見れるとき', type: :system do
+    it 'ログインしていなくても見ることができる' do
+      #トップページに移動
+      visit root_path
+      #トップページにgymの文字があることを確認
+      expect(page).to have_content('Gym.')
+      # indexページに移動
+      visit gym_information_index_path
+      # 投稿したものがあることを確認
+      expect(page).to have_content("#{@gym1.name}")
+      expect(page).to have_content("#{@gym1.region.name}")
+      expect(page).to have_selector("img[src$='test_image.png']")
+      # 投稿した内容が含まれている
+      visit gym_information_path(@gym1)
+      expect(page).to have_selector("img[src$='test_image.png']")
+      expect(page).to have_content("#{@gym1.name}")
+      expect(page).to have_content("#{@gym1.boulder_or_lead.name}")
+      expect(page).to have_content("#{@gym1.region.name}")
+      expect(page).to have_content("#{@gym1.address}")
+      expect(page).to have_content("#{@gym1.business_hours1.name}")
+      expect(page).to have_content("#{@gym1.business_hours2.name}")
+      expect(page).to have_content("#{@gym1.grade_sence.name}")
+      expect(page).to have_content("#{@gym1.people_day.name}")
+      expect(page).to have_content("#{@gym1.people_time1.name}")
+      expect(page).to have_content("#{@gym1.people_time2.name}")
+      expect(page).to have_content("#{@gym1.people_vibe.name}")
+      expect(page).to have_content("#{@gym1.clerk_vibe.name}")
+      expect(page).to have_link "#{@gym1.name}", href:("#{@gym1.gym_url}")
+      expect(page).to have_link "#{@gym1.name}", href:"#{@gym1.gym_sns_url}"
+      expect(page).to have_content("#{@gym1.other}")
+    end
+  end
+
+  context '詳細が見れないとき' do
+    it '投稿したものがないと詳細ページにいけない'do
+      visit gym_information_index_path
+      expect(page).to have_no_content("#{@gym1.name}")
+      expect(page).to have_no_content("#{@gym1.region.name}")
+      expect(page).to have_no_selector("img[src$='test_image.png']")
     end
   end
 end

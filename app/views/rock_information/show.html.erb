@@ -6,6 +6,7 @@
   <%= link_to '編集', edit_rock_information_path, method: :get%>
   <%= link_to "削除", rock_information_path(@rock.id), method: :delete%>
 <% end %>
+<div class= "post-list">
 <table class="detail-table">
   <tbody>
     <tr>
@@ -113,6 +114,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 <div class = "rock-tasks">
 <h1><%= @rock.name%>課題情報</h1>

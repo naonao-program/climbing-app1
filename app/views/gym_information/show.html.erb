@@ -6,6 +6,7 @@
   <%= link_to '編集', edit_gym_information_path, method: :get%>
   <%= link_to '削除', gym_information_path(@gyms.id), method: :delete %>
 <% end %>
+<div class= "post-list">
 <table class="detail-table">
   <tbody>
     <tr>
@@ -123,3 +124,69 @@
     </tr>
   </tbody>
 </table>
+</div>
+
+<div class="gmap">
+  <h2>gmap</h2>
+
+  <!-- 地名入力用のinputを追加 -->
+  <input id="address" type="textbox" value="Sydney, NSW">
+
+  <!-- buttonをクリックしたらcodeAddressを実行　-->
+  <input type="button" value="Encode" onclick="codeAddress()">
+  <div id='map'>
+  </div>
+</div>
+
+
+<script>
+/*
+mapを関数の外で定義(codeAddressでも使うため)
+geocoderを用意
+*/
+
+  let map
+  let geocoder
+
+  function initMap() {
+    // geocoderを初期化
+    // 引用者注:google.maps.Geocoderインスタンスを生成
+    geocoder = new google.maps.Geocoder()
+
+    // 引用者注:google.maps.Mapインスタンスを生成することで、地図のデフォルト位置(緯度経度、ズーム)を設定
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: -34.397,
+        lng: 150.644
+      },
+      zoom: 8
+    });
+  }
+
+  function codeAddress() {
+    // 入力を取得
+    let inputAddress = document.getElementById('address').value;
+
+    // geocodingしたあとmapを移動
+    geocoder.geocode({
+      'address': inputAddress
+    }, function (results, status) {
+      if (status == 'OK') {
+        // map.setCenterで地図が移動
+        map.setCenter(results[0].geometry.location);
+
+        // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+        // google.maps.Markerインスタンスを生成
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+</script>
+// 引用者の判断でAPI keyは環境変数を利用
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
+</script>
