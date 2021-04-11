@@ -72,7 +72,9 @@ main {
 }
 
 .slack_join:hover {
-  color: #fff;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  opacity: 0.7;
 }
 .slack-icon {
   width: 50px;
