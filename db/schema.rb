@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_04_10_062247) do
     t.string "name", null: false
     t.integer "region_id", null: false
     t.string "address", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.integer "business_hours1_id", null: false
     t.integer "business_hours2_id", null: false
     t.integer "grade_sence_id", null: false
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 2021_04_10_062247) do
     t.integer "region_id", null: false
     t.integer "rock_quality_id", null: false
     t.string "address", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.integer "season1_id", null: false
     t.integer "season2_id", null: false
     t.integer "night_id", null: false

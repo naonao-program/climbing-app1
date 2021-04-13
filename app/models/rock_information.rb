@@ -4,6 +4,9 @@ class RockInformation < ApplicationRecord
   has_many :rock_tasks, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   with_options presence: true do
     validates :images
     validates :name

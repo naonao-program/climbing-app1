@@ -6,6 +6,8 @@ class CreateRockInformations < ActiveRecord::Migration[6.0]
       t.integer :region_id, null: false
       t.integer :rock_quality_id, null: false
       t.string :address, null: false
+      t.float :latitude
+      t.float :longitude
       t.integer :season1_id, null: false
       t.integer :season2_id, null: false
       t.integer :night_id, null: false
