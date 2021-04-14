@@ -10,6 +10,7 @@ require("channels")
 require('./preview')
 require('./payjp')
 require('./animation')
+require('./googlemaps')
 //= require jquery
 //= require jquery_ujs
 
