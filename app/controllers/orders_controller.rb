@@ -10,7 +10,7 @@
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      return redirect_to group_index_path
     else
       render 'new'
     end

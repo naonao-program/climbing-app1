@@ -127,7 +127,7 @@
 </div>
 
 <%# #mapの表示 %>
-<div id="map"></div>
+<div id="map" style="width: 92vh; height: 50vh;"></div>
 
 <script type="text/javascript">
   function initMap() {
@@ -162,6 +162,7 @@
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
 <style type="text/css">
   #map { height: 50vh;
