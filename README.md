@@ -148,4 +148,4 @@ Mac OS Catalina var: 10.15.7
 
 3.rails db:create
 
-4.rails db:migrat
+4.rails db:migrate
