@@ -32,7 +32,10 @@
   </tbody>
 </table>
 
-<span>この課題の動画</span>
-<div class = "youtube">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<% if @task.youtube_url[1] != nil %>
+  <span>この課題の動画</span>
+  <div class = "youtube">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+<% else %>
+<% end %>

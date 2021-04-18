@@ -11,7 +11,7 @@ class GymInformationController < ApplicationController
   def create
     @gym = GymInformation.new(gym_information_params)
     if @gym.save
-      redirect_to root_path
+      redirect_to gym_information_index_path
     else
       render :new
     end
@@ -41,6 +41,10 @@ class GymInformationController < ApplicationController
       @gym.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+    @gyms = GymInformation.search(params[:keyword])
   end
 
   private

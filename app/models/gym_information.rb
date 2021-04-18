@@ -6,6 +6,14 @@ class GymInformation < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def self.search(search)
+    if search != ""
+      GymInformation.where('text LIKE(?)', "%#{search}%")
+    else
+      GymInformation.all
+    end
+  end
+
   with_options presence: true do
     validates :images
     validates :name
