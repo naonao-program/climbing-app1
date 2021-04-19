@@ -1,3 +1,42 @@
 // Place all the styles related to the gym_information controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search-form-post {
+  text-align: center;
+  padding-top: 130px;
+  margin-bottom: 30px;
+}
+
+.search-form-post .search-input-post {
+  width: 40%;
+  color: #fff;
+}
+
+.search-form-post .search-btn-post {
+  width: 10%;
+  background-color: rgba(57, 128, 165, 0.71);
+  border-radius:30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+.search-btn-post:hover {
+  background: #f56500;
+  
+}

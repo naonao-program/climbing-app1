@@ -8,7 +8,7 @@ class GymInformation < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      GymInformation.where('text LIKE(?)', "%#{search}%")
+      GymInformation.where('name LIKE(?)', "%#{search}%")
     else
       GymInformation.all
     end

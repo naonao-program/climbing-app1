@@ -41,6 +41,10 @@ class RockInformationController < ApplicationController
     end
   end
 
+  def search
+    @rock = RockInformation.search(params[:keyword])
+  end
+
   private
 
   def rock_information_params

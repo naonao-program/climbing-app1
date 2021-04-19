@@ -1,6 +1,28 @@
-<%= form_with(url: search_gym_information_index_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
+<div class="gym-index">
+ <div class="grouppage-body">
+    <div class= "header-container">
+    <ul class = "header-li">
+      <li><%= link_to "Climbing App",root_path, class: "header-logo"%><li>
+    </ul>
+      <ul class="header-ul">
+        <li class= "header-li"><%= link_to "Gym.",gym_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Rock.",rock_information_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn"%></li>
+      <%# ログインしているときしていないときで分ける %>
+      <% if user_signed_in?%>
+        <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" , class:"header-btn"%></li>
+        <li><%= link_to 'Logout.', destroy_user_session_path, method: :delete, class: "logout" , class:"header-btn"%></li>
+      <% else %>
+        <li class= "header-li"><%= link_to "Login.",new_user_session_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Sign Up.",new_user_registration_path, class:"header-btn"%></li>
+      <% end %>
+      <%# ↑ログインしているときしていない表示切り替え %>
+      </ul>
+    </div>
+  <div>
+<%= form_with(url: search_gym_information_index_path, local: true, method: :get, class: "search-form-post") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-post" %>
+  <%= form.submit "検索", class: "search-btn-post" %>
 <% end %>
 <div class="contents row">
   <ul class = "gym-lists">

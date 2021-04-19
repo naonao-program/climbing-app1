@@ -22,7 +22,10 @@
   <div>
 
 <div class="contents row">
-
+<%= form_with(url: search_gym_information_index_path, local: true, method: :get, class: "search-form-post") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-post" %>
+  <%= form.submit "検索", class: "search-btn-post " %>
+<% end %>
   <ul class = "gym-lists">
     <% @gyms.each do |gym|%>
       <li class= "list">

@@ -7,6 +7,14 @@ class RockInformation < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def self.search(search)
+    if search != ""
+      RockInformation.where('name LIKE(?)', "%#{search}%")
+    else
+      RockInformation.all
+    end
+  end
+
   with_options presence: true do
     validates :images
     validates :name
