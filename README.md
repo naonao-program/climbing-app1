@@ -127,7 +127,7 @@ Slackでは情報の共有•一緒に登る仲間を募集したり•登る上
 [![Image from Gyazo](https://i.gyazo.com/63fbbc9f5cbd9907a90fe9976015f3f1.gif)](https://gyazo.com/63fbbc9f5cbd9907a90fe9976015f3f1)
 
 # 実装予定の機能
-検索機能の実装
+コメント機能の実装
 
 本番環境でGoogle Mapsの表示がされないのでそれを出来るように実装
 
