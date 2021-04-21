@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   
   resources :gym_information do
-    resources :gym_comments, only: [:create]
+    resources :gym_comments, only: :create
     collection do
       get 'search'
     end

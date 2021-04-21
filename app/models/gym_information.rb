@@ -1,6 +1,6 @@
 class GymInformation < ApplicationRecord
   belongs_to :user
-  has_many :gym_comments
+  has_many :gym_comments, dependent: :destroy
   has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
 
