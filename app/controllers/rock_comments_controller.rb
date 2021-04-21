@@ -1,0 +1,2 @@
+class RockCommentsController < ApplicationController
+end
