@@ -1,0 +1,2 @@
+module GymCommentsHelper
+end
