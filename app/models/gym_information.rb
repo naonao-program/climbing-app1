@@ -16,7 +16,7 @@ class GymInformation < ApplicationRecord
 
   with_options presence: true do
     validates :images
-    validates :name
+    validates :name, uniqueness: true
     validates :address
     with_options numericality: { other_than: 1 } do
       validates :boulder_or_lead_id
