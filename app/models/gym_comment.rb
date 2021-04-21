@@ -1,0 +1,2 @@
+class GymComment < ApplicationRecord
+end
