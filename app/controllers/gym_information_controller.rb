@@ -20,6 +20,8 @@ class GymInformationController < ApplicationController
   def show
     @gym = GymInformation.all
     @gyms = GymInformation.find(params[:id])
+    @comment = GymComment.new
+    @comments = @gyms.gym_comments.includes(:user)
   end
 
   def edit
