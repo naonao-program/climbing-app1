@@ -116,14 +116,17 @@
 </table>
 </div>
 
+<%# #mapの表示 %>
+<div id="map"></div>
+
 <script type="text/javascript">
   function initMap() {
 // latitude,longitudeから位置を特定
     var test ={lat: <%= @rock.latitude %>, lng: <%= @rock.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15, 
-              center: test
-              });
+      zoom: 15,
+      center: test
+    });
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
@@ -134,14 +137,14 @@
 
 //  #Map上の指定した位置にピンを挿して表示する
     var marker = new google.maps.Marker({
-                  position:test,
-                  map: map,
-                  title: contentString
-                 });
+      position:test,
+      map: map,
+      title: contentString
+    });
 
-     marker.addListener('click', function() {
-       infowindow.open(map, marker);
-     });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
   }
 </script>
 
@@ -156,9 +159,6 @@
          margin-left: 50vh;
          margin-bottom: 30px;}
 </style>
-
-<%# #mapの表示 %>
-<div id="map"></div>
 
 <div class = "rock-tasks">
 <h1><%= @rock.name%>課題情報</h1>
