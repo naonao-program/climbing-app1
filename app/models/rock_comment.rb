@@ -1,0 +1,2 @@
+class RockComment < ApplicationRecord
+end
