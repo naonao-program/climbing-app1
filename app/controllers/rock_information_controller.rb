@@ -21,6 +21,8 @@ class RockInformationController < ApplicationController
   def show
     @task = RockTask.new
     @tasks = @rock.rock_tasks.includes(:user)
+    @comment = RockComment.new
+    @comments = @rock.rock_comments.includes(:user)
   end
 
   def edit

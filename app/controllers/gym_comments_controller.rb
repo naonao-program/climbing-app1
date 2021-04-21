@@ -1,6 +1,5 @@
 class GymCommentsController < ApplicationController
   def create
-    binding.pry
     comment = GymComment.create(comment_params)
     redirect_to gym_information_index_path
   end
