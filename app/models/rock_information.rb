@@ -1,6 +1,7 @@
 class RockInformation < ApplicationRecord
   belongs_to :user
   has_many_attached :images
+  has_many :rock_comments, dependent: :destroy
   has_many :rock_tasks, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
 

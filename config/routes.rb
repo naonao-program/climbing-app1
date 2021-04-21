@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   resources :rock_information do
+    resources :rock_comments, only: :create
     resources :rock_task, only: [:new, :create, :show, :destroy]
     collection do
       get 'search'
