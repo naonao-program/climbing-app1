@@ -185,7 +185,7 @@
 </div>
 </div>
 
-  <div class="container">
+  <div class="container-comments">
     <% if user_signed_in? %>
       <%= form_with(model: [@rock,@comment], local: true) do |form| %>
         <%= form.text_area :comment, placeholder: "コメントする", rows: "2",class: "comment-post" %>
