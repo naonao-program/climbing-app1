@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :rock_informations
   has_many :rock_tasks
+  has_many :gym_comments
 
   with_options presence: true do
     validates :nickname, format: { with: /\A[a-zA-Z0-9]+\z/ }
