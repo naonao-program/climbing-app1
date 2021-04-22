@@ -1,7 +1,55 @@
 // Place all the styles related to the rock_task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.rock-task-name {
+  color: #666;
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+}
 
-.rock-tasks {
-  background-color: papayawhip;
+.show {
+  float: left;
+  margin-left: 21vw;
+}
+
+.show-btn {
+  margin:0px 0px 30px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+.show-btn {
+  color: #fff;
+  background-color: rgba(57, 128, 165, 0.71);
+}
+
+.show-btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.show-btn-c {
+  font-size: 15px;
+  width: 40vh;
+  position: relative;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin-left: 85px;
+  border: none;
 }

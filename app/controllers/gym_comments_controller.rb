@@ -1,7 +1,7 @@
 class GymCommentsController < ApplicationController
   def create
     comment = GymComment.create(comment_params)
-    redirect_to gym_information_index_path
+    redirect_to "/gym_information/#{comment.gym_information.id}"
   end
 
   private

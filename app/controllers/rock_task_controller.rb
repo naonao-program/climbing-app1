@@ -15,6 +15,7 @@ class RockTaskController < ApplicationController
   end
 
   def show
+    @rock = RockInformation.find(params[:id])
     @task = RockTask.find(params[:rock_information_id])
   end
 

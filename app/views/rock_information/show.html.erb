@@ -1,10 +1,13 @@
-<h1>岩情報詳細ページ</h1>
+<h4 class= "comments"><%= @rock.name %>の情報詳細ページ</h4>
+<h4 class= "comments">※ページの下部に<%= @rock.name%>の課題情報一覧•投稿があります</h4>
 <% @rock.images.each do |image|%>
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
 <% if user_signed_in? && @rock.user_id == current_user.id%>
-  <%= link_to '編集', edit_rock_information_path, method: :get%>
-  <%= link_to "削除", rock_information_path(@rock.id), method: :delete%>
+  <ul>
+  <li class= "show"><%= link_to '編集', edit_rock_information_path, method: :get, class: "show-btn show-btn--orange show-btn-c"%></li>
+  <li><%= link_to "削除", rock_information_path(@rock.id), method: :delete , class: "show-btn show-btn--orange show-btn-c"%></li>
+  </ul>
 <% end %>
 <div class= "post-list">
 <table class="detail-table">
@@ -116,6 +119,26 @@
 </table>
 </div>
 
+  <div class="container-comments">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@rock,@comment], local: true) do |form| %>
+        <%= form.text_area :comment, placeholder: "この岩場についてコメントする", rows: "2",class: "comment-post" %>
+        <%= form.submit "SEND",class:"btn btn--orange btn-c submit"%>
+      <% end %>
+    <% else %>
+      <h4><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></h4>
+    <% end %>
+    <div class="comments">
+    <h4>＜コメント一覧＞</h4>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <%= comment.comment %>
+      </p>
+     <% end %>
+     </div>
+  </div>
+
 <%# #mapの表示 %>
 <div id="map"></div>
 
@@ -155,20 +178,19 @@
 <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
 <style type="text/css">
   #map { height: 50vh;
-         width: 91vh;
+         width: 50vw;
          margin-left: 50vh;
          margin-bottom: 30px;}
 </style>
 
-<div class = "rock-tasks">
-<h1><%= @rock.name%>課題情報</h1>
-<%= link_to '課題の投稿はこちら',new_rock_information_rock_task_path(@rock.id) %>
-</div>
 
 <%# 課題一覧 %>
-<div class = "rock-information">
+<div class = "container-comments">
+<h4 class= "rock-task-name">< <%= @rock.name%>の課題情報 ></h4>
+<%= link_to "#{@rock.name}の課題の投稿はこちら",new_rock_information_rock_task_path(@rock.id), class: "btn btn--orange btn-c submit" %>
+<div class= "comments">
 <div class="contents row">
-  <ul class = "gym-lists">
+  <ul class = "task-lists">
     <% @tasks.each do |task| %>
       <%= link_to rock_information_rock_task_path(task.id,@rock.id) do%> 
         <li class= "list">
@@ -176,7 +198,6 @@
             <%= image_tag image%>
             <%= task.name%>
             <%= task.rock_task_grade.name%>
-            <%= task.other%>
          <% end %>
          </li>
       <% end %> 
@@ -184,23 +205,4 @@
   </ul>
 </div>
 </div>
-
-  <div class="container-comments">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@rock,@comment], local: true) do |form| %>
-        <%= form.text_area :comment, placeholder: "コメントする", rows: "2",class: "comment-post" %>
-        <%= form.submit "SEND",class:"btn btn--orange btn-c submit"%>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
-    <div class="comments">
-    <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-      <p>
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-        <%= comment.comment %>
-      </p>
-     <% end %>
-     </div>
-  </div>
+</div>

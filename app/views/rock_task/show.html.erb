@@ -1,4 +1,4 @@
-<h1>岩課題情報投稿</h1>
+<h4 class= "comments"><%= @rock.name %>　<%= @task.name %>　情報詳細ページ</h4>
 <% @task.images.each do |image| %>
   <%= image_tag image, class: 'gym-images' %>
 <% end %>
@@ -33,7 +33,7 @@
 </table>
 
 <% if @task.youtube_url[1] != nil %>
-  <span>この課題の動画</span>
+  <h4 class= "comments"><%= @task.name %>の動画</h4>
   <div class = "youtube">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>

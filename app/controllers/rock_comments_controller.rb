@@ -1,7 +1,7 @@
 class RockCommentsController < ApplicationController
   def create
     comment = RockComment.create(comment_params)
-    redirect_to rock_information_index_path
+    redirect_to "/rock_information/#{comment.rock_information.id}"
   end
 
   private
