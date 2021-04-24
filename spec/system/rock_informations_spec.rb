@@ -9,13 +9,23 @@ RSpec.describe "Rock情報投稿", type: :system do
 
   context 'Rock情報が投稿できるとき' do
     it 'ログインしているユーザーが投稿できる' do
-       # トップページに「岩情報投稿」という文字があるか
+       # トップページに「岩場情報投稿」という文字があるか
        visit root_path
-       expect(page).to have_content('岩情報投稿')
+       expect(page).to have_content('岩場情報投稿')
       # ログインする
       sign_in(@user)
-      # Gym投稿ページに行く
-      visit new_gym_information_path
+      # rock投稿ページに行く
+      visit new_rock_information_path
+      #フォームに情報を記入
+      attach_file('rock_information[images][]',Rails.root.join('public/images/test_image.png'))
+      select('ボルダリング',from: "rock_information[boulder_or_lead_id]")
+      fill_in 'rock_information_name', with: @rock.name
+      select('北海道', from: "rock_information[region_id]")
+      select('石灰岩' ,form: "rock_information[rock_quality_id]")
+      fill_in 'rock_information_address', with: @rock.address
+      select('1月', form: "rock_information[season1_id]")
+      select('1月',form: "rock_information[season2_id]")
+      select('✕',form: "rock_information[night_id]")
     end
   end
 end

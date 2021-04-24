@@ -3,7 +3,7 @@
   <%= image_tag image, class: 'gym-images' %>
 <% end %>
 <% if user_signed_in? && @task.user_id == current_user.id %>
-  <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete %> 
+  <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete, class: 'show-btn show-btn--orange show-btn-c task-btn' %> 
 <% end %>
 <table class="detail-table">
   <tbody>
