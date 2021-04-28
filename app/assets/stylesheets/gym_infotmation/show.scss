@@ -113,3 +113,15 @@ h4 {
 .list {
   color: #666;
 }
+
+@media(max-width:599px) {
+  body {
+    width: 50%;
+  }
+  .post-list {
+    padding-left: 40px;
+  }
+  .container-comments {
+    width: 300px;
+  }
+}

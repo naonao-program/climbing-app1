@@ -1,5 +1,7 @@
+<div class = "show-post-page">
 <h4 class="comments"><%= @gyms.name %>の情報詳細ページ</h4>
 <h4 class="comments">※ページの下部に<%= @gyms.name %>のマップが掲載されています</h4>
+<div class = "show-post">
 <% @gyms.images.each do |image|%>
   <%= image_tag image,class: 'gym-images'%>
 <% end %>
@@ -171,7 +173,6 @@
          margin-left: 50vh;
          margin-bottom: 30px;}
 </style>
-
   <div class="container-comments">
     <% if user_signed_in? %>
       <%= form_with(model: [@gyms,@comment], local: true) do |form| %>
@@ -191,3 +192,5 @@
      <% end %>
      </div>
   </div>
+</div>
+<div>
