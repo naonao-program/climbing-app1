@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :gym_information do
     boulder_or_lead_id  { '2' }
-    name                { 'あいうえお' }
+    name                { Faker::Name.initials }
     region_id           { '2' }
     address             { '横浜市' }
     business_hours1_id  { '2' }

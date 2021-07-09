@@ -80,3 +80,134 @@ RSpec.describe "Rock情報投稿", type: :system do
     end
   end
 end
+
+RSpec.describe "Rock情報編集", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @rock1 = FactoryBot.create(:rock_information)
+    @rock2 = FactoryBot.create(:rock_information)
+    @rock_image = Faker::Lorem.sentence
+  end
+  context '岩場情報が編集できる時' do
+    it 'ログインしたユーザーは自分が投稿した投稿したものを編集ができる' do
+    #投稿1を投稿したユーザーでログインする
+    sign_in(@rock1.user)
+    #投稿詳細ページへ遷移
+    visit rock_information_path(@rock1)
+    #編集ボタンが有るか
+    expect(page).to have_link '編集', href: edit_rock_information_path(@rock1)
+    #編集ページへ遷移する
+    visit edit_rock_information_path(@rock1)
+    #すでに投稿済みの内容がフォームに入っていることを確認
+    expect(page).to have_selector("img[src$='test_image.png']")
+
+    expect(page).to have_select('rock_information[boulder_or_lead_id]', selected: 'ボルダリング')
+
+    expect(
+      find('#rock_information_name').value
+    ).to eq @rock1.name
+
+    expect(page).to have_select('rock_information[region_id]', selected: '北海道')
+
+    expect(page).to have_select('rock_information[rock_quality_id]', selected: '石灰岩')
+
+    expect(
+      find('#rock_information_address').value
+    ).to eq '大阪市'
+
+    
+    expect(page).to have_select('rock_information[season1_id]', selected: '1月')
+
+    expect(page).to have_select('rock_information[season2_id]', selected: '1月')
+
+    expect(page).to have_select('rock_information[night_id]', selected: '○')
+
+    expect(page).to have_select('rock_information[grade_sence_id]', selected: '全体的に簡単')
+
+    expect(page).to have_select('rock_information[grade_sence_id]', selected: '全体的に簡単')
+
+    expect(page).to have_select('rock_information[people_day_id]', selected: '平日')
+
+    expect(page).to have_select('rock_information[people_time1_id]', selected: '9時')
+
+    expect(page).to have_select('rock_information[people_time2_id]', selected: '9時')
+
+    expect(page).to have_select('rock_information[people_vibe_id]', selected: 'ワイワイしている')
+
+    expect(
+      find('#rock_information_other').value
+    ).to eq 'かきくけこ'
+
+    # 編集してもRockInformationモデルのカウントは変わらないことを確認する
+    expect{
+      find('input[name="commit"]').click
+    }.to change { RockInformation.count }.by(0)
+    expect(current_path).to eq rock_information_path(@rock1)
+    end
+  end
+  context '岩場情報投稿が編集できない時' do
+    it '投稿者が違う場合は編集できない' do
+      #投稿した以外のユーザーでログインする
+      sign_in(@rock1.user)
+      #ログイン以外のユーザーの投稿
+      visit rock_information_path(@rock2)
+      # 編集ボタンがないことを確かめる
+      has_no_button?('編集')
+    end
+    
+    it 'ログインしていない場合は編集できない' do
+      visit rock_information_path(@rock2)
+      # 編集ボタンがないことを確かめる
+      has_no_button?('編集')
+    end
+  end
+end
+
+RSpec.describe "Rock情報削除", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @rock1 = FactoryBot.create(:rock_information)
+    @rock2 = FactoryBot.create(:rock_information)
+  end
+  context '岩場情報が削除できるとき' do
+    it 'ログインしているユーザーと投稿しているユーザーが同じ時は削除できる' do
+      #ユーザー1でログイン
+      sign_in(@rock1.user)
+      #ユーザ1の投稿へいき「削除」ボタンが有ることを確認
+      visit rock_information_path(@rock1)
+      has_button?('削除')
+      #「削除」ボタンを押すとトップページに行く
+      expect{
+        find('a[data-method="delete"').click
+      }.to change { RockInformation.count }.by(-1)
+      expect(current_path).to eq root_path
+    end
+  end
+  
+  context '岩場情報が削除できない時' do
+    it 'ログインしているユーザーと投稿しているユーザーが同じでないときは削除できない' do
+      sign_in(@rock1.user)
+      visit rock_information_path(@rock2)
+      has_no_button?('削除')
+    end
+    it 'ログインしていない場合は削除できない' do
+      visit rock_information_path(@rock2)
+      has_no_button?('削除')
+    end
+  end
+end
+
+RSpec.describe "Rock情報詳細表示", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @rock1 = FactoryBot.create(:rock_information)
+    @rock2 = FactoryBot.create(:rock_information)
+  end
+
+  context 'rock情報詳細表示が見れる時' do
+    it 'ログインしてなくても見ることが出来る' do
+      visit rock_information_path(@rock1)
+      expect(current_path).to eq rock_information_path(@rock1)
+    end
+  end
+end
