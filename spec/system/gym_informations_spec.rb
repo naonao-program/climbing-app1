@@ -50,7 +50,7 @@ RSpec.describe "Gym情報投稿", type: :system do
   end
   context 'Gym情報投稿できないとき' do
     it 'ログインしていない場合は投稿できない' do
-      # トップページに遷移する
+      # 投稿に遷移する
       visit new_gym_information_path
       # 新規投稿ページへのリンクがない
       expect(current_path).to eq new_user_session_path

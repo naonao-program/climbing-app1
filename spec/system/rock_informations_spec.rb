@@ -50,8 +50,33 @@ RSpec.describe "Rock情報投稿", type: :system do
       sign_in(@user)
       # rock投稿ページに行く
       visit new_rock_information_path
-      #フォームに情報を記入
-
+      #フォームに情報を記入せずに投稿
+      expect{
+        find('input[name="commit"]').click
+      }.to change { RockInformation.count }.by(0)
+      #エラー文が出力される
+      expect(page).to have_content("Images can't be blank")
+      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Address can't be blank")
+      expect(page).to have_content("Boulder or lead must be other than 1")
+      expect(page).to have_content("Region must be other than 1")
+      expect(page).to have_content("Rock quality must be other than 1")
+      expect(page).to have_content("Season1 must be other than 1")
+      expect(page).to have_content("Season2 must be other than 1")
+      expect(page).to have_content("Night must be other than 1")
+      expect(page).to have_content("Grade sence must be other than 1")
+      expect(page).to have_content("People day must be other than 1")
+      expect(page).to have_content("People time1 must be other than 1")
+      expect(page).to have_content("People time2 must be other than 1")
+      expect(page).to have_content("People vibe must be other than 1")
+    end
+    it 'ログインしていないと投稿ページに行けない' do
+      #トップページへ遷移する
+      visit root_path
+      #岩場情報投稿を押す
+      visit new_rock_information_path
+      #新規投稿ページではなくログインページに行く
+      expect(current_path).to eq(new_user_session_path)
     end
   end
 end
