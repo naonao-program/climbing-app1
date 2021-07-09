@@ -38,10 +38,8 @@ RSpec.describe "Gym情報投稿", type: :system do
       expect{
         find('input[name="commit"]').click
       }.to change { GymInformation.count }.by(1)
-      # トップページへ遷移したことを確認する
-      expect(current_path).to eq(root_path)
-      # GymInformation indexページに行くとさきほど投稿したものがある
-      visit gym_information_index_path
+      # 投稿一覧ページへ遷移したことを確認する
+      expect(current_path).to eq(gym_information_index_path)
       # 投稿したものがあることを確認
       expect(page).to have_content("#{@gym.name}")
       expect(page).to have_content("#{@gym.region.name}")
@@ -72,14 +70,36 @@ RSpec.describe "Gym情報編集", type: :system do
       # 編集ページへ遷移する
       visit edit_gym_information_path(@gym1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
+      expect(page).to have_selector("img[src$='test_image.png']")
+
+      expect(page).to have_select('gym_information[boulder_or_lead_id]', selected: 'ボルダリング')
+
       expect(
         find('#gym_information_name').value
-      ).to eq 'あいうえお'
+      ).to eq @gym1.name
+
+      expect(page).to have_select('gym_information[region_id]', selected: '北海道')
 
       expect(
         find('#gym_information_address').value
       ).to eq '横浜市'
 
+      expect(page).to have_select('gym_information[business_hours1_id]', selected: '9時')
+      
+      expect(page).to have_select('gym_information[business_hours2_id]', selected: '9時')
+
+      expect(page).to have_select('gym_information[grade_sence_id]', selected: '全体的に簡単')
+
+      expect(page).to have_select('gym_information[people_day_id]', selected: '平日')
+
+      expect(page).to have_select('gym_information[people_time1_id]', selected: '9時')
+
+      expect(page).to have_select('gym_information[people_time1_id]', selected: '9時')
+
+      expect(page).to have_select('gym_information[people_vibe_id]', selected: 'ワイワイしている')
+
+      expect(page).to have_select('gym_information[clerk_vibe_id]', selected: '明るく接しやすい')
+      
       expect(
         find('#gym_information_gym_url').value
       ).to eq 'https://www.google.com/'
