@@ -18,7 +18,7 @@ RSpec.describe "Rock課題情報投稿", type: :system do
       visit new_rock_information_rock_task_path(@rock)
       #正しく入力
       attach_file('rock_task[images][]',Rails.root.join('public/images/test_image.png'))
-      fill_in 'rock_task[name]', with: @rock_task.name
+      fill_in 'rock_task[name]', with: 'さしすせそ'
       select('初段', from:"rock_task[rock_task_grade_id]")
       fill_in 'rock_task[youtube_url]', with: @rock_task.youtube_url
       fill_in 'rock_task[other]', with: @rock_task.other
@@ -29,8 +29,23 @@ RSpec.describe "Rock課題情報投稿", type: :system do
       #リダイレクトする先あっている
       expect(current_path).to eq(rock_information_path(@rock))
       #投稿したものがあるか確認
-      expect(page).to have_content(@rock_task.name)
+      expect(page).to have_content('さしすせそ')
       expect(page).to have_content('初段')
+    end
+  end
+
+  context 'Rock課題情報が投稿できない時' do
+    it 'フォームに正しく記入できていない時' do
+      sign_in(@rock.user)
+      visit new_rock_information_rock_task_path(@rock)
+      #フォームに何も書かずに投稿する
+      expect{
+        find('input[name="commit"]').click
+      }.to change { RockTask.count }.by(0)
+      #エラー分が出力される
+      expect(page).to have_content("Images can't be blank")
+      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Rock task grade must be other than 1")
     end
   end
 end
