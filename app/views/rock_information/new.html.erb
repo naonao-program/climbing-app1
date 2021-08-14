@@ -95,7 +95,7 @@
     <%= f.text_field :other, class: 'text_field', size:"50vh"%><br>
   </div>
 
-  <%= f.submit "投稿する", class: "btn btn--orange btn-c" %>
+  <%= f.submit "投稿する", data: {confirm: 'こちらの内容で投稿しますか？'},class: "btn btn--orange btn-c" %>
   <%=link_to 'もどる', root_path, class: "btn btn--orange btn-c" %>
   <% end %>
 

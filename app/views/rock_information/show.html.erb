@@ -6,7 +6,7 @@
 <% if user_signed_in? && @rock.user_id == current_user.id%>
   <ul>
   <li class= "show"><%= link_to '編集', edit_rock_information_path, method: :get, class: "show-btn show-btn--orange show-btn-c"%></li>
-  <li><%= link_to "削除", rock_information_path(@rock.id), method: :delete , class: "show-btn show-btn--orange show-btn-c"%></li>
+  <li><%= link_to "削除", rock_information_path(@rock.id), method: :delete , data: {confirm: '削除しますか？'}, class: "show-btn show-btn--orange show-btn-c"%></li>
   </ul>
 <% end %>
 <div class= "post-list">

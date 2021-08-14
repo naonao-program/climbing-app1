@@ -96,7 +96,7 @@
     <span>その他（ジムでの注意•ルールなどあれば記述してください）</span><br>
     <%= f.text_field :other, placeholder: '例)粉チョーク✕'%><br>
     </ul><br>
-  <%= f.submit "投稿する", class: "btn btn--orange btn-c" %>
+  <%= f.submit "投稿する", data: {confirm: 'こちらの内容で投稿しますか？'}, class: "btn btn--orange btn-c" %>
   <%=link_to 'もどる', root_path, class:"btn btn--orange btn-c" %>
 <% end %>
 

@@ -8,7 +8,7 @@
 <% if user_signed_in? && @gyms.user_id == current_user.id %>
   <ul>
   <li class= "show"><%= link_to '編集', edit_gym_information_path, method: :get,class: "show-btn show-btn--orange show-btn-c"%></li>
-  <li><%= link_to '削除', gym_information_path(@gyms.id), method: :delete,class: "show-btn show-btn--orange show-btn-c gym-show" %></li>
+  <li><%= link_to '削除', gym_information_path(@gyms.id), method: :delete, data: {confirm: '削除しますか？'}, class: "show-btn show-btn--orange show-btn-c gym-show" %></li>
 <% end %>
 <div class= "post-list">
 <table class="detail-table">
@@ -168,8 +168,8 @@
 </script>
 <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
 <style type="text/css">
-  #map { height: 50vh;
-         width: 50vw;
+  #map { height: 500px;
+         width: 850px;
          margin-left: 50vh;
          margin-bottom: 30px;}
 </style>
