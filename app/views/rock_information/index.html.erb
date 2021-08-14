@@ -33,22 +33,27 @@
 <%= form_with(url: search_rock_information_index_path, local: true, method: :get, class: "search-form-post") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-post" %>
   <%= form.submit "検索", class: "search-btn-post" %>
+  <%= link_to '投稿へ', new_rock_information_path, class: "search-btn-post" %>
 <% end %>
   <ul class = "gym-lists">
-    <% @rock.each do |rock|%>
-      <li class= "list">
-        <%= link_to rock_information_path(rock.id) do %>
-          <div class= "item-img-content">
-            <% rock.images.each do |image|%>
-              <%= image_tag image, class: 'gym-image'%>
-            <%end%>
-            <div class = "item-name">
-              <%= rock.name%>
-              <%= rock.region.name%>
+    <% if @rock[0] != nil %>
+      <% @rock.each do |rock|%>
+        <li class= "list">
+          <%= link_to rock_information_path(rock.id) do %>
+            <div class= "item-img-content">
+              <% rock.images.each do |image|%>
+                <%= image_tag image, class: 'gym-image'%>
+              <%end%>
+              <div class = "item-name">
+                <%= rock.name%>
+                <%= rock.region.name%>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </li>
+          <% end %>
+        </li>
+      <% end %>
+      <% else %>
+        <%= '投稿されているものがありません。「投稿へ」ボタンまたは「トップページ」から投稿してください'%>
     <% end %>
   </ul>
 </div>

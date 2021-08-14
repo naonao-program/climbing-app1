@@ -24,23 +24,28 @@
 <div class="contents row">
 <%= form_with(url: search_gym_information_index_path, local: true, method: :get, class: "search-form-post") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-post" %>
-  <%= form.submit "検索", class: "search-btn-post " %>
+  <%= form.submit "検索", class: "search-btn-post" %>
+  <%= link_to '投稿へ', new_gym_information_path, class: "search-btn-post" %>
 <% end %>
   <ul class = "gym-lists">
-    <% @gyms.each do |gym|%>
-      <li class= "list">
-        <%= link_to gym_information_path(gym.id) do %>
-          <div class= "item-img-content">
-            <% gym.images.each do |image|%>
-              <%= image_tag image, class: 'gym-image'%>
-            <%end%>
-            <div class = "item-name">
-              <%= gym.name%>
-              <%= gym.region.name%>
+    <% if @gyms[0] != nil %>
+      <% @gyms.each do |gym|%>
+        <li class= "list">
+          <%= link_to gym_information_path(gym.id) do %>
+            <div class= "item-img-content">
+              <% gym.images.each do |image|%>
+                <%= image_tag image, class: 'gym-image'%>
+              <%end%>
+              <div class = "item-name">
+                <%= gym.name%>
+                <%= gym.region.name%>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </li>
+          <% end %>
+        </li>
+      <% end %>
+      <% else %>
+        <%= '投稿されているものがありません。「投稿へ」ボタンまたは「トップページ」から投稿してください'%>
     <% end %>
   </ul>
 </div>
