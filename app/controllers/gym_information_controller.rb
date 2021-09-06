@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GymInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   def index

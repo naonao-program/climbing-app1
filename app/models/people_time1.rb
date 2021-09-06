@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PeopleTime1 < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },

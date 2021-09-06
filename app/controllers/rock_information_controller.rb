@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class RockInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_rock_information, only: %i[show edit update destroy]
+
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
   end

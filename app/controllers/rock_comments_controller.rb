@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RockCommentsController < ApplicationController
   def create
     comment = RockComment.create(comment_params)

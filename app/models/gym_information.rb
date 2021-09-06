@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GymInformation < ApplicationRecord
   belongs_to :user
   has_many :gym_comments, dependent: :destroy

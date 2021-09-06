@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Hour < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
