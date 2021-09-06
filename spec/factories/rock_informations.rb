@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :rock_information do
     boulder_or_lead_id { '2' }

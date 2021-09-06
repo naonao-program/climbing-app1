@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRockInformations < ActiveRecord::Migration[6.0]
   def change
     create_table :rock_informations do |t|

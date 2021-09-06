@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RockTask < ApplicationRecord
   belongs_to :user
   belongs_to :rock_information

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGymComments < ActiveRecord::Migration[6.1]
   def change
     create_table :gym_comments do |t|

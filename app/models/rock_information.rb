@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RockInformation < ApplicationRecord
   belongs_to :user
   has_many_attached :images

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GymCommentsController < ApplicationController
   def create
     comment = GymComment.create(comment_params)

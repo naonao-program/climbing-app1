@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRockComments < ActiveRecord::Migration[6.1]
   def change
     create_table :rock_comments do |t|
