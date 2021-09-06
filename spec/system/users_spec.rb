@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ユーザー新規登録", type: :system do
+RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -18,17 +18,17 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'Password', with: @user.password
       fill_in 'Password confirmation', with: @user.password_confirmation
       fill_in 'Nickname', with: @user.nickname
-      select(value = "2", from: "user[boulder_gym_grade_id]")
-      select(value = "2", from: "user[lead_gym_grade_id]")
-      select(value = "2", from: "user[boulder_rock_grade_id]")
-      select(value = "2", from: "user[lead_rock_grade_id]")
-      select('男性', from: "user[gender_id]")
-      select('北海道', from: "user[region_id]")
-      select(value = "2", from: "user[age_id]")
+      select(value = '2', from: 'user[boulder_gym_grade_id]')
+      select(value = '2', from: 'user[lead_gym_grade_id]')
+      select(value = '2', from: 'user[boulder_rock_grade_id]')
+      select(value = '2', from: 'user[lead_rock_grade_id]')
+      select('男性', from: 'user[gender_id]')
+      select('北海道', from: 'user[region_id]')
+      select(value = '2', from: 'user[age_id]')
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページへ遷移したことを確認する
       expect(current_path).to eq(root_path)
       # ログアウトボタンとnicknameが表示されることを確認する
@@ -45,27 +45,27 @@ RSpec.describe "ユーザー新規登録", type: :system do
       # トップページに移動する
       visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
-      expect(page).to have_content("Sign Up.")
+      expect(page).to have_content('Sign Up.')
       # 新規登録ページへ移動する
       visit new_user_registration_path
       # ユーザー情報を入力する
-      fill_in 'Email', with: ""
-      fill_in 'Password', with: ""
-      fill_in 'Password confirmation', with: ""
-      fill_in 'Nickname', with: ""
-      select('--', from: "user[boulder_gym_grade_id]")
-      select('--', from: "user[lead_gym_grade_id]")
-      select('--', from: "user[boulder_rock_grade_id]")
-      select('--', from: "user[lead_rock_grade_id]")
-      select('--', from: "user[gender_id]")
-      select('--', from: "user[region_id]")
-      select('--', from: "user[age_id]")
+      fill_in 'Email', with: ''
+      fill_in 'Password', with: ''
+      fill_in 'Password confirmation', with: ''
+      fill_in 'Nickname', with: ''
+      select('--', from: 'user[boulder_gym_grade_id]')
+      select('--', from: 'user[lead_gym_grade_id]')
+      select('--', from: 'user[boulder_rock_grade_id]')
+      select('--', from: 'user[lead_rock_grade_id]')
+      select('--', from: 'user[gender_id]')
+      select('--', from: 'user[region_id]')
+      select('--', from: 'user[age_id]')
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change{User.count}.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
-      expect(current_path).to eq "/users"
+      expect(current_path).to eq '/users'
     end
   end
 end
@@ -108,8 +108,8 @@ RSpec.describe 'ログイン', type: :system do
       # ログインページへ遷移する
       visit new_user_session_path
       # ユーザー情報を入力する
-      fill_in 'Email', with: ""
-      fill_in 'Password', with: ""
+      fill_in 'Email', with: ''
+      fill_in 'Password', with: ''
       # ログインボタンを押す
       find('input[name="commit"]').click
       # ログインページへ戻されることを確認する

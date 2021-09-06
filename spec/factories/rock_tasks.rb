@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :rock_task do
-    name                 {Faker::Name.name}
-    rock_task_grade_id   {'2'}
-    youtube_url          {'https://youtu.be/Ks71YWIDEuM'}
-    other                {'さしすせそ'}
+    name                 { Faker::Name.name }
+    rock_task_grade_id   { '2' }
+    youtube_url          { 'https://youtu.be/Ks71YWIDEuM' }
+    other                { 'さしすせそ' }
 
     association :user
     association :rock_information

@@ -7,8 +7,8 @@ class CreateGymInformations < ActiveRecord::Migration[6.0]
       t.string :address, null: false
       t.float :latitude
       t.float :longitude
-      t.integer :business_hours1_id, null:false
-      t.integer :business_hours2_id, null:false
+      t.integer :business_hours1_id, null: false
+      t.integer :business_hours2_id, null: false
       t.integer :grade_sence_id, null: false
       t.integer :people_day_id, null: false
       t.integer :people_time1_id, null: false

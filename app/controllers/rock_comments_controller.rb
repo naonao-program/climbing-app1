@@ -5,7 +5,9 @@ class RockCommentsController < ApplicationController
   end
 
   private
+
   def comment_params
-    params.require(:rock_comment).permit(:comment).merge(user_id: current_user.id, rock_information_id: params[:rock_information_id])
+    params.require(:rock_comment).permit(:comment).merge(user_id: current_user.id,
+                                                         rock_information_id: params[:rock_information_id])
   end
 end

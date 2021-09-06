@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :rock_information do
     boulder_or_lead_id { '2' }
-    name               {Faker::Name.initials}
+    name               { Faker::Name.initials }
     region_id          { '2' }
     rock_quality_id    { '2' }
     address            { '大阪市' }

@@ -15,5 +15,4 @@ class RockTask < ApplicationRecord
   end
 
   belongs_to_active_hash :rock_task_grade
-  
 end

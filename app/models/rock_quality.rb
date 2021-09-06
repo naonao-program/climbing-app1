@@ -5,7 +5,7 @@ class RockQuality < ActiveHash::Base
     { id: 3, name: '凝灰岩' },
     { id: 4, name: '砂岩' },
     { id: 5, name: '花崗岩' },
-    { id: 6, name: 'その他'}
+    { id: 6, name: 'その他' }
   ]
 
   include ActiveHash::Associations

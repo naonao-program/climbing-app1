@@ -11,7 +11,7 @@ class GymInformationController < ApplicationController
   def create
     @gym = GymInformation.new(gym_information_params)
     if @gym.save
-      redirect_to gym_information_path(@gym.id), notice: "成功しました"
+      redirect_to gym_information_path(@gym.id), notice: '成功しました'
     else
       render :new
     end
@@ -52,7 +52,7 @@ class GymInformationController < ApplicationController
   private
 
   def gym_information_params
-    params.require(:gym_information).permit(:boulder_or_lead_id, :name, :region_id, :address, :grade_sence_id,:business_hours1_id, :business_hours2_id,
+    params.require(:gym_information).permit(:boulder_or_lead_id, :name, :region_id, :address, :grade_sence_id, :business_hours1_id, :business_hours2_id,
                                             :people_day_id, :people_time1_id, :people_time2_id, :people_vibe_id, :clerk_vibe_id, :gym_url, :gym_sns_url, :other, images: []).merge(user_id: current_user.id)
   end
 end

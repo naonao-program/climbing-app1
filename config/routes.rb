@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   resources :rock_information do
     resources :rock_comments, only: :create
-    resources :rock_task, only: [:new, :create, :show, :destroy]
+    resources :rock_task, only: %i[new create show destroy]
     collection do
       get 'search'
     end
   end
-  
+
   resources :gym_information do
     resources :gym_comments, only: :create
     collection do
@@ -18,9 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :group, only: %i[index]
-  resources :orders, only:[:new,:create]
-
-
+  resources :orders, only: %i[new create]
 
   resources :users, only: :show
 end

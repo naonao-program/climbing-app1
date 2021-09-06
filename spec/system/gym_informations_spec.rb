@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Gym情報投稿", type: :system do
+RSpec.describe 'Gym情報投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @gym = FactoryBot.build(:gym_information)
@@ -18,31 +18,31 @@ RSpec.describe "Gym情報投稿", type: :system do
       visit new_gym_information_path
       # フォームに情報を記入
       has_button?('gym_information[images][]')
-      attach_file('gym_information[images][]',Rails.root.join('public/images/test_image.png'))
-      select('ボルダリング', from: "gym_information[boulder_or_lead_id]")
+      attach_file('gym_information[images][]', Rails.root.join('public/images/test_image.png'))
+      select('ボルダリング', from: 'gym_information[boulder_or_lead_id]')
       fill_in 'gym_information_name', with: @gym.name
-      select('北海道', from: "gym_information[region_id]")
+      select('北海道', from: 'gym_information[region_id]')
       fill_in 'gym_information_address', with: @gym.address
-      select('9時', from: "gym_information[business_hours1_id]")
-      select('9時', from: "gym_information[business_hours2_id]")
-      select('全体的に簡単', from: "gym_information[grade_sence_id]")
-      select('平日', from: "gym_information[people_day_id]")
-      select('9時', from: "gym_information[people_time1_id]")
-      select('9時', from: "gym_information[people_time2_id]")
-      select('落ち着いている', from: "gym_information[people_vibe_id]")
-      select('普通', from: "gym_information[clerk_vibe_id]")
+      select('9時', from: 'gym_information[business_hours1_id]')
+      select('9時', from: 'gym_information[business_hours2_id]')
+      select('全体的に簡単', from: 'gym_information[grade_sence_id]')
+      select('平日', from: 'gym_information[people_day_id]')
+      select('9時', from: 'gym_information[people_time1_id]')
+      select('9時', from: 'gym_information[people_time2_id]')
+      select('落ち着いている', from: 'gym_information[people_vibe_id]')
+      select('普通', from: 'gym_information[clerk_vibe_id]')
       fill_in 'gym_information_gym_url', with: @gym.gym_url
       fill_in 'gym_information_gym_sns_url', with: @gym.gym_sns_url
       fill_in 'gym_information_other', with: @gym.other
-      #投稿するボダンを押すとGymInformationもでるのカウントが1上がることを確認する
-      expect{
+      # 投稿するボダンを押すとGymInformationもでるのカウントが1上がることを確認する
+      expect  do
         find('input[name="commit"]').click
-      }.to change { GymInformation.count }.by(1)
+      end.to change { GymInformation.count }.by(1)
       # 投稿一覧ページへ遷移したことを確認する
       expect(current_path).to eq(gym_information_index_path)
       # 投稿したものがあることを確認
-      expect(page).to have_content("#{@gym.name}")
-      expect(page).to have_content("#{@gym.region.name}")
+      expect(page).to have_content(@gym.name.to_s)
+      expect(page).to have_content(@gym.region.name.to_s)
       expect(page).to have_selector("img[src$='test_image.png']")
     end
   end
@@ -56,7 +56,7 @@ RSpec.describe "Gym情報投稿", type: :system do
   end
 end
 
-RSpec.describe "Gym情報編集", type: :system do
+RSpec.describe 'Gym情報編集', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @gym1 = FactoryBot.create(:gym_information)
@@ -85,7 +85,7 @@ RSpec.describe "Gym情報編集", type: :system do
       ).to eq '横浜市'
 
       expect(page).to have_select('gym_information[business_hours1_id]', selected: '9時')
-      
+
       expect(page).to have_select('gym_information[business_hours2_id]', selected: '9時')
 
       expect(page).to have_select('gym_information[grade_sence_id]', selected: '全体的に簡単')
@@ -99,7 +99,7 @@ RSpec.describe "Gym情報編集", type: :system do
       expect(page).to have_select('gym_information[people_vibe_id]', selected: 'ワイワイしている')
 
       expect(page).to have_select('gym_information[clerk_vibe_id]', selected: '明るく接しやすい')
-      
+
       expect(
         find('#gym_information_gym_url').value
       ).to eq 'https://www.google.com/'
@@ -112,9 +112,9 @@ RSpec.describe "Gym情報編集", type: :system do
         find('#gym_information_other').value
       ).to eq 'さしすせそ'
       # 投稿するボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change{GymInformation.count}.by(0)
+      end.to change { GymInformation.count }.by(0)
 
       # トップページに戻ることを確認する
       expect(current_path).to eq gym_information_path(@gym1)
@@ -137,7 +137,7 @@ RSpec.describe "Gym情報編集", type: :system do
   end
 end
 
-RSpec.describe "Gym情報削除", type: :system do
+RSpec.describe 'Gym情報削除', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @gym1 = FactoryBot.create(:gym_information)
@@ -150,16 +150,15 @@ RSpec.describe "Gym情報削除", type: :system do
       sign_in(@gym1.user)
       # gym1のユーザーの投稿へ行く
       visit gym_information_path(@gym1)
-      #ボタンが有ることを確認
+      # ボタンが有ることを確認
       has_button?('削除')
-      #ボタンを押すとトップページへ行く
-      expect{
+      # ボタンを押すとトップページへ行く
+      expect do
         find('a[data-method="delete"').click
-      }.to change { GymInformation.count }.by(-1)
+      end.to change { GymInformation.count }.by(-1)
       expect(current_path).to eq root_path
     end
   end
-
 
   context 'ジム情報が削除できないとき' do
     it 'ログインしているユーザーと投稿しているユーザーが同じ時でないとき削除できない' do
@@ -176,7 +175,7 @@ RSpec.describe "Gym情報削除", type: :system do
   end
 end
 
-RSpec.describe "Gym情報詳細表示", type: :system do
+RSpec.describe 'Gym情報詳細表示', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @gym1 = FactoryBot.create(:gym_information)
@@ -186,42 +185,42 @@ RSpec.describe "Gym情報詳細表示", type: :system do
 
   context 'ジム情報詳細表示が見れるとき', type: :system do
     it 'ログインしていなくても見ることができる' do
-      #トップページに移動
+      # トップページに移動
       visit root_path
-      #トップページにgymの文字があることを確認
+      # トップページにgymの文字があることを確認
       expect(page).to have_content('Gym.')
       # indexページに移動
       visit gym_information_index_path
       # 投稿したものがあることを確認
-      expect(page).to have_content("#{@gym1.name}")
-      expect(page).to have_content("#{@gym1.region.name}")
+      expect(page).to have_content(@gym1.name.to_s)
+      expect(page).to have_content(@gym1.region.name.to_s)
       expect(page).to have_selector("img[src$='test_image.png']")
       # 投稿した内容が含まれている
       visit gym_information_path(@gym1)
       expect(page).to have_selector("img[src$='test_image.png']")
-      expect(page).to have_content("#{@gym1.name}")
-      expect(page).to have_content("#{@gym1.boulder_or_lead.name}")
-      expect(page).to have_content("#{@gym1.region.name}")
-      expect(page).to have_content("#{@gym1.address}")
-      expect(page).to have_content("#{@gym1.business_hours1.name}")
-      expect(page).to have_content("#{@gym1.business_hours2.name}")
-      expect(page).to have_content("#{@gym1.grade_sence.name}")
-      expect(page).to have_content("#{@gym1.people_day.name}")
-      expect(page).to have_content("#{@gym1.people_time1.name}")
-      expect(page).to have_content("#{@gym1.people_time2.name}")
-      expect(page).to have_content("#{@gym1.people_vibe.name}")
-      expect(page).to have_content("#{@gym1.clerk_vibe.name}")
-      expect(page).to have_link "#{@gym1.name}", href:("#{@gym1.gym_url}")
-      expect(page).to have_link "#{@gym1.name}", href:"#{@gym1.gym_sns_url}"
-      expect(page).to have_content("#{@gym1.other}")
+      expect(page).to have_content(@gym1.name.to_s)
+      expect(page).to have_content(@gym1.boulder_or_lead.name.to_s)
+      expect(page).to have_content(@gym1.region.name.to_s)
+      expect(page).to have_content(@gym1.address.to_s)
+      expect(page).to have_content(@gym1.business_hours1.name.to_s)
+      expect(page).to have_content(@gym1.business_hours2.name.to_s)
+      expect(page).to have_content(@gym1.grade_sence.name.to_s)
+      expect(page).to have_content(@gym1.people_day.name.to_s)
+      expect(page).to have_content(@gym1.people_time1.name.to_s)
+      expect(page).to have_content(@gym1.people_time2.name.to_s)
+      expect(page).to have_content(@gym1.people_vibe.name.to_s)
+      expect(page).to have_content(@gym1.clerk_vibe.name.to_s)
+      expect(page).to have_link @gym1.name.to_s, href: @gym1.gym_url.to_s
+      expect(page).to have_link @gym1.name.to_s, href: @gym1.gym_sns_url.to_s
+      expect(page).to have_content(@gym1.other.to_s)
     end
   end
 
   context '詳細が見れないとき' do
-    it '投稿したものがないと詳細ページにいけない'do
+    it '投稿したものがないと詳細ページにいけない' do
       visit gym_information_index_path
-      expect(page).to have_no_content("#{@gym1.name}")
-      expect(page).to have_no_content("#{@gym1.region.name}")
+      expect(page).to have_no_content(@gym1.name.to_s)
+      expect(page).to have_no_content(@gym1.region.name.to_s)
       expect(page).to have_no_selector("img[src$='test_image.png']")
     end
   end

@@ -8,7 +8,7 @@ class GymInformation < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def self.search(search)
-    if search != ""
+    if search != ''
       GymInformation.where('name LIKE(?)', "%#{search}%")
     else
       GymInformation.all

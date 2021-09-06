@@ -31,14 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -79,16 +79,16 @@ gem 'payjp'
 
 gem 'jquery-rails'
 
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 
-gem "mimemagic", "~> 0.3.10"
+gem 'mimemagic', '~> 0.3.10'
 
-gem "gmaps4rails"
+gem 'gmaps4rails'
 
-gem "geocoder"
+gem 'geocoder'
 
-gem "gon"
+gem 'gon'
 
-gem "dotenv-rails"
+gem 'dotenv-rails'
 
 gem 'dotenv-rails'

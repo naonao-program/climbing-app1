@@ -9,7 +9,7 @@ class RockInformation < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def self.search(search)
-    if search != ""
+    if search != ''
       RockInformation.where('name LIKE(?)', "%#{search}%")
     else
       RockInformation.all

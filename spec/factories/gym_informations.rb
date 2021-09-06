@@ -13,7 +13,7 @@ FactoryBot.define do
     people_vibe_id      { '2' }
     clerk_vibe_id       { '2' }
     gym_url             { 'https://www.google.com/' }
-    gym_sns_url         { 'https://www.google.com/'}
+    gym_sns_url         { 'https://www.google.com/' }
     other               { 'さしすせそ' }
 
     association :user

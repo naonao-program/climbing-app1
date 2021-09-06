@@ -35,7 +35,7 @@ RSpec.describe RockTask, type: :model do
       it 'rock_task_gradeが１のときは投稿できない' do
         @task.rock_task_grade_id = 1
         @task.valid?
-        expect(@task.errors.full_messages).to include("Rock task grade must be other than 1")
+        expect(@task.errors.full_messages).to include('Rock task grade must be other than 1')
       end
     end
   end
