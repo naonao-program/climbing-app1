@@ -96,7 +96,7 @@
   </div>
 
   <%= f.submit "投稿する", data: {confirm: 'こちらの内容で投稿しますか？'},class: "btn btn--orange btn-c" %>
-  <%=link_to 'もどる', root_path, class: "btn btn--orange btn-c" %>
+  <%=link_to 'もどる', rock_information_index_path, class: "btn btn--orange btn-c" %>
   <% end %>
 
   <% @rock.images.each do |image| %>

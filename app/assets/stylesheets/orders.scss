@@ -24,39 +24,38 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
-}
-
-.order {
-  animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
-}
-
-@keyframes popup {
-  0% {
-    transform: translateY(40px) scale(0);
-    opacity: 0;
+  .order {
+    animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
   }
-  100% {
-    transform: translateY(0) scale(1.0);
+  
+  @keyframes popup {
+    0% {
+      transform: translateY(40px) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1.0);
+    }
+    80%, 100% {
+      opacity: 1;
+    }
   }
-  80%, 100% {
-    opacity: 1;
+   
+  .anim-box.popup.is-animated {
+    animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
   }
-}
- 
-.anim-box.popup.is-animated {
-  animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
-}
- 
-@keyframes popup {
-  0% {
-    transform: translateY(40px) scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1.0);
-  }
-  80%, 100% {
-    opacity: 1;
+   
+  @keyframes popup {
+    0% {
+      transform: translateY(40px) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1.0);
+    }
+    80%, 100% {
+      opacity: 1;
+    }
   }
 }
 

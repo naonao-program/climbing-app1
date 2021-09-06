@@ -94,3 +94,5 @@ gem 'gon'
 gem 'dotenv-rails'
 
 gem 'dotenv-rails'
+
+gem 'rmagick'
