@@ -12,7 +12,7 @@ class RockInformationController < ApplicationController
   def create
     @rock = RockInformation.new(rock_information_params)
     if @rock.save
-      redirect_to rock_information_index_path
+      redirect_to rock_information_path(@rock.id)
     else
       render :new
     end
@@ -39,7 +39,7 @@ class RockInformationController < ApplicationController
   def destroy
     if current_user.id == @rock.user_id
       @rock.destroy
-      redirect_to root_path
+      redirect_to rock_information_index_path
     end
   end
 
