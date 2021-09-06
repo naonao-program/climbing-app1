@@ -11,7 +11,7 @@ class GymInformationController < ApplicationController
   def create
     @gym = GymInformation.new(gym_information_params)
     if @gym.save
-      redirect_to gym_information_index_path
+      redirect_to gym_information_path(@gym.id), notice: "成功しました"
     else
       render :new
     end
