@@ -12,7 +12,7 @@ class RockInformationController < ApplicationController
   def create
     @rock = RockInformation.new(rock_information_params)
     if @rock.save
-      redirect_to rock_information_path(@rock.id)
+      redirect_to rock_information_path(@rock.id), notice: "成功しました"
     else
       render :new
     end
