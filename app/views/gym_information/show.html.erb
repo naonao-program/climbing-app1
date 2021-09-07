@@ -6,9 +6,10 @@
       <%= image_tag image,class: 'gym-images'%>
     <% end %>
     <% if user_signed_in? && @gyms.user_id == current_user.id %>
-      <ul>
+      <ul class = "edit-delete-btn">
         <li class= "show"><%= link_to '編集', edit_gym_information_path, method: :get,class: "show-btn show-btn--orange show-btn-c"%></li>
         <li><%= link_to '削除', gym_information_path(@gyms.id), method: :delete, data: {confirm: '削除しますか？'}, class: "show-btn show-btn--orange show-btn-c gym-show" %></li>
+      </ul>
     <% end %>
     <div class= "post-list">
     <table class="detail-table">
