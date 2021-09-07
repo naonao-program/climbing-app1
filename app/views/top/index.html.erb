@@ -29,20 +29,15 @@
      </div>
       <div>
         <span class="catch-copy", id="animation">共に創る、最高の景色</span>
+        <%= link_to(new_gym_information_path,class: 'toppage-gym-btn') do%>
+          <%= image_tag '183270.png', size: '185x50' ,class: "btn-icon"%>
+          <span>ジム情報投稿</span>
+        <% end %>
+        <%= link_to(new_rock_information_path, class: 'toppage-rock-btn') do%>
+          <%= image_tag '136615.png' ,size: '70x70' ,class: "btn-icon"%>
+          <span class="btn-letter">岩場情報投稿</span>
+        <% end %>
       </div>
-    
-    <div class= "post-btn">
-      <%= link_to(new_gym_information_path,class: 'toppage-gym-btn') do%>
-        <%= image_tag '183270.png', size: '185x50' ,class: "btn-icon"%>
-        <span>ジム情報投稿</span>
-      <% end%>
-      <%= link_to(new_rock_information_path, class: 'toppage-rock-btn') do%>
-        <%= image_tag '136615.png' ,size: '70x70' ,class: "btn-icon"%>
-        <span class="btn-letter">岩場情報投稿</span>
-      <% end %>
-    </div>
-  </div>
-
     <header>
     </header> 
   </body>
