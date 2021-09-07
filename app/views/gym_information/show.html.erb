@@ -107,7 +107,7 @@
       <tbody>
         <tr>
           <th class="detail-item">ホームページ</th>
-          <td class="detail-value"><%= link_to "#{@gyms.name}のホームページはこちら","#{@gyms.gym_url}", target: :_blank, rel: "noopener noreferrer" %></td>
+          <td class="detail-value"><%= link_to "#{@gyms.name}のホームページはこちら","#{@gyms.gym_url}", target: :_blank, rel: "noopener noreferrer", class: "homepage" %></td>
         </tr>
       </tbody>
     </table>
@@ -116,7 +116,7 @@
       <tbody>
         <tr>
           <th class="detail-item">SNS</th>
-          <td class="detail-value"><%= link_to "#{@gyms.name}のSNSはこちら", "#{@gyms.gym_sns_url}", target: :_blank, rel: "noopener noreferrer" %></td>
+          <td class="detail-value"><%= link_to "#{@gyms.name}のSNSはこちら", "#{@gyms.gym_sns_url}", target: :_blank, rel: "noopener noreferrer" , class: "homepage"%></td>
         </tr>
       </tbody>
     </table>
@@ -169,15 +169,18 @@
   </script>
   <%# #表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
   <style type="text/css">
-    #map { height: 500px;
-          width: 850px;
+    #map { height: 50vh;
+          width: 50%;
           margin-left: 50vh;
-          margin-bottom: 30px;}
+          margin-right: 50vh;
+          margin-bottom: 5vh;}
   </style>
     <div class="container-comments">
       <% if user_signed_in? %>
         <%= form_with(model: [@gyms,@comment], local: true) do |form| %>
-          <%= form.text_area :comment, placeholder: "このジムについてコメントする", rows: "2",class: "comment-post" %>
+          <div class= "comment-textbox">
+            <%= form.text_area :comment, placeholder: "このジムについてコメントする", rows: "2",class: "comment-post" %>
+          </div>
           <%= form.submit "SEND",class:"btn btn--orange btn-c submit"%>
         <% end %>
       <% else %>

@@ -1,14 +1,20 @@
 .show-post-page {
   text-align: center;
+  display: inline-block;
 }
 
 .show-post {
   text-align: center;
 }
 
+.post-list {
+  margin: 0 45vh 5vh 45vh;
+}
+
 .detail-table {
-  width: 50%;
-  margin-left: 50vh;
+  width: 80vh;
+  margin: 0 10vh;
+  
 }
 
 .detail-item {
@@ -20,24 +26,19 @@
 }
 
 .detail-value {
-  width: 80%;
+  width: 40%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
 }
 
-.post-list {
-  margin-bottom: 50px;
-}
 
-#map {
-  height: 400px;
-}
+
 
 .container-comments {
-  width: 50vw;
-  margin: 5vh 0 5vh ;
-  margin-left: 27vw;
+  display: inline-block;
+  width: 600px;
+  margin: 0 50vh 5vh 50vh;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   background-color: white;
@@ -47,6 +48,7 @@
 .comments {
   padding: 5px;
   margin-top: 15px;
+  text-align: center;
 }
 
 .comments a {
@@ -66,20 +68,12 @@ h4 {
   margin: 0;
 }
 
-
-
 .comment-post {
-  width: 40vw;
-  margin-left: 55px;
-}
-
-.submit {
-  margin-left: 13vw;
+  width: 80%;
 }
 
 .task-lists {
   width: 50vw;
-  margin-left: 15vh;
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
@@ -126,4 +120,22 @@ h4 {
   .container-comments {
     width: 300px;
   }
+}
+
+.submit {
+  margin-top: 20px;
+  width: max-content;
+}
+
+.homepage {
+  color: #57C3E9;
+}
+
+@media screen and (min-width:1080px) {
+  .show-post-page {
+  }
+}
+
+.show-btn:hover {
+  opacity: 0.7;
 }

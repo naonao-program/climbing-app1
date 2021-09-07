@@ -99,9 +99,12 @@
   background-color: rgba(57, 128, 165, 0.71);
 }
 
-.btn--orange:hover {
+.btn--orange {
   color: #fff;
-  background: #f56500;
+}
+
+.btn--orange:hover {
+  opacity: 0.7;
 }
 
 .btn-c {
@@ -109,7 +112,6 @@
   width: 40vh;
   position: relative;
   padding: 0.5rem 2rem 0.5rem 2rem;
-  margin-left: 85px;
   border: none;
 }
 
