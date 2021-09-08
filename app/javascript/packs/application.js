@@ -12,6 +12,7 @@ require('./payjp')
 require('./animation')
 require('./googlemaps')
 require('./current')
+require('jquery')
 //= require jquery
 //= require jquery_ujs
 

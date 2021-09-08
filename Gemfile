@@ -96,3 +96,5 @@ gem 'dotenv-rails'
 gem 'dotenv-rails'
 
 gem 'rmagick'
+
+gem "toastr-rails"
