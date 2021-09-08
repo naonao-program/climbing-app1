@@ -22,7 +22,8 @@
   <div>
 <%= form_with(url: search_gym_information_index_path, local: true, method: :get, class: "search-form-post") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-post" %>
-  <%= form.submit "検索", class: "search-btn-post" %>
+  <%= form.submit "検索", class: "show-btn show-btn--orange show-btn-c" %>
+  <%= link_to 'ジム情報投稿へ', new_gym_information_path, class: "show-btn show-btn--orange show-btn-c" %>
 <% end %>
 <div class="contents row">
   <ul class = "gym-lists">
