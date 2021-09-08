@@ -11,7 +11,7 @@ Climbing-App
 http://52.194.94.94/
 
 # テスト用アカウント
-Email:test@test.com
+Email:test@example.com
 Password:test11
 
 # 購入用カードの番号・期限・セキュリティコード
