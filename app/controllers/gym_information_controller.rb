@@ -41,7 +41,7 @@ class GymInformationController < ApplicationController
     @gym = GymInformation.find(params[:id])
     if current_user.id == @gym.user_id
       @gym.destroy
-      redirect_to gym_information_path
+      redirect_to gym_information_index_path
     end
   end
 

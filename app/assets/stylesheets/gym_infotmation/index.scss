@@ -1,5 +1,10 @@
 .gym-index {
-  background-color: cadetblue;
+  background-image: image-url('gym.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color:rgba(255, 255, 255, 0.3);
+	background-blend-mode:lighten; 
 }
 
 .header-ul {
