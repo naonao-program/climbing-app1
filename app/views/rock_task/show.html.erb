@@ -1,41 +1,46 @@
-<h4 class= "comments"><%= @rock.name %>　<%= @task.name %>　情報詳細ページ</h4>
-<% @task.images.each do |image| %>
-  <%= image_tag image, class: 'gym-images' %>
-<% end %>
-<% if user_signed_in? && @task.user_id == current_user.id %>
-  <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete, data: {confirm: '削除しますか？'},class: 'show-btn show-btn--orange show-btn-c task-btn' %> 
-<% end %>
-<table class="detail-table">
-  <tbody>
-    <tr>
-      <th class="detail-item">課題名</th>
-      <td class="detail-value"><%= @task.name%></td>
-    </tr>
-  </tbody>
-</table>
+<div class="show-post-page">
+  <h4 class= "comments"><%= @rock.name %>　<%= @task.name %>　情報詳細ページ</h4>
+  <div class = "show-post">
+  <% @task.images.each do |image| %>
+    <%= image_tag image, class: 'gym-images' %>
+  <% end %>
+  <% if user_signed_in? && @task.user_id == current_user.id %>
+    <%= link_to '削除', rock_information_rock_task_path(@task), method: :delete, data: {confirm: '削除しますか？'},class: 'show-btn show-btn--orange show-btn-c task-btn' %> 
+  <% end %>
+  <div class= "post-list">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">課題名</th>
+          <td class="detail-value"><%= @task.name%></td>
+        </tr>
+      </tbody>
+    </table>
 
-<table class="detail-table">
-  <tbody>
-    <tr>
-      <th class="detail-item">グレード</th>
-      <td class="detail-value"><%= @task.rock_task_grade.name %><td>
-    </tr>
-  </tbody>
-</table>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">グレード</th>
+          <td class="detail-value"><%= @task.rock_task_grade.name %></td>
+        </tr>
+      </tbody>
+    </table>
 
-<table class="detail-table">
-  <tbody>
-    <tr>
-      <th class="detail-item">その他<br>注意することなど</th>
-      <td class="detail-value"><%= @task.other %><td>
-    </tr>
-  </tbody>
-</table>
-
-<% if @task.youtube_url[1] != nil %>
-  <h4 class= "comments"><%= @task.name %>の動画</h4>
-  <div class = "youtube">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">その他<br>注意することなど</th>
+          <td class="detail-value"><%= @task.other %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-<% else %>
-<% end %>
+
+  <% if @task.youtube_url[1] != nil %>
+    <h4 class= "comments"><%= @task.name %>の動画</h4>
+    <div class = "youtube">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @task.youtube_url[17..28]%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  <% else %>
+  <% end %>
+</div>
