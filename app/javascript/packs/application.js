@@ -13,6 +13,10 @@ require('./animation')
 require('./googlemaps')
 require('./current')
 require('jquery')
+
+import './src/application.scss'
+import toastr from 'toastr'
+window.toastr = toastr
 //= require jquery
 //= require jquery_ujs
 
