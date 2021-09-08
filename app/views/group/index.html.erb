@@ -11,7 +11,7 @@
       <ul class="header-ul">
         <li class= "header-li"><%= link_to "Gym.",gym_information_index_path, class:"header-btn"%></li>
         <li class= "header-li"><%= link_to "Rock.",rock_information_index_path, class:"header-btn"%></li>
-        <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn"%></li>
+        <li class= "header-li"><%= link_to "Group.",group_index_path, class:"header-btn header-group"%></li>
       <%# ログインしているときしていないときで分ける %>
       <% if user_signed_in?%>
         <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" , class:"header-btn"%></li>
