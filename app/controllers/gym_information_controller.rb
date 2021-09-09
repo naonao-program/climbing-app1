@@ -1,8 +1,9 @@
 class GymInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :set_region_all, only: [:index, :search]
+
   def index
     @gyms = GymInformation.includes(:user).order('created_at DESC')
-    @region = Region.all
   end
 
   def new
@@ -50,7 +51,7 @@ class GymInformationController < ApplicationController
 
   def search
     @gyms = GymInformation.search(params[:keyword]).where(region_id: params[:region_id])
-    @region = Region.all
+
   end
 
   private
@@ -58,5 +59,9 @@ class GymInformationController < ApplicationController
   def gym_information_params
     params.require(:gym_information).permit(:boulder_or_lead_id, :name, :region_id, :address, :grade_sence_id, :business_hours1_id, :business_hours2_id,
                                             :people_day_id, :people_time1_id, :people_time2_id, :people_vibe_id, :clerk_vibe_id, :gym_url, :gym_sns_url, :other, images: []).merge(user_id: current_user.id)
+  end
+
+  def set_region_all
+    @region =Region.all
   end
 end

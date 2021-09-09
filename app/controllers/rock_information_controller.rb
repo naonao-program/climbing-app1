@@ -3,10 +3,10 @@
 class RockInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_rock_information, only: %i[show edit update destroy]
+  before_action :set_region_all, only: [:index, :search]
 
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
-    @region = Region.all
   end
 
   def new
@@ -49,7 +49,6 @@ class RockInformationController < ApplicationController
 
   def search
     @rock = RockInformation.search(params[:keyword]).where(region_id: params[:region_id])
-    @region = Region.all
   end
 
   private
@@ -61,5 +60,9 @@ class RockInformationController < ApplicationController
 
   def set_rock_information
     @rock = RockInformation.find(params[:id])
+  end
+
+  def set_region_all
+    @region =Region.all
   end
 end
