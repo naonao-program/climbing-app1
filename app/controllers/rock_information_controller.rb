@@ -6,6 +6,7 @@ class RockInformationController < ApplicationController
 
   def index
     @rock = RockInformation.includes(:user).order('created_at DESC')
+    @region = Region.all
   end
 
   def new
@@ -47,7 +48,8 @@ class RockInformationController < ApplicationController
   end
 
   def search
-    @rock = RockInformation.search(params[:keyword])
+    @rock = RockInformation.search(params[:keyword]).where(region_id: params[:region_id])
+    @region = Region.all
   end
 
   private

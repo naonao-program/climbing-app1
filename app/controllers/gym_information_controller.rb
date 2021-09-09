@@ -2,6 +2,7 @@ class GymInformationController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   def index
     @gyms = GymInformation.includes(:user).order('created_at DESC')
+    @region = Region.all
   end
 
   def new
@@ -48,7 +49,8 @@ class GymInformationController < ApplicationController
   end
 
   def search
-    @gyms = GymInformation.search(params[:keyword])
+    @gyms = GymInformation.search(params[:keyword]).where(region_id: params[:region_id])
+    @region = Region.all
   end
 
   private
