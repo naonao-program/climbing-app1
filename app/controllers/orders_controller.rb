@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save
-      redirect_to group_index_path
+      redirect_to group_index_path, notice: '購入が完了しました'
     else
       render 'new'
     end

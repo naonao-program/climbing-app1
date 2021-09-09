@@ -198,3 +198,14 @@
     </div>
   </div>
 <div>
+
+<%# Toast表示 %>
+<script>toastr.options.closeDuration = 300;</script>
+<% if flash.any? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      toastr['<%= key %>']('<%= value %>');
+    <% end %>
+  </script>
+<% end %>

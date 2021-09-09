@@ -48,4 +48,13 @@
         <%= '投稿されているものがありません。「投稿へ」ボタンまたは「トップページ」から投稿してください'%>
     <% end %>
   </ul>
+  <%# Toast表示 %>
+<% if flash.any? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      toastr['<%= key %>']('<%= value %>');
+    <% end %>
+  </script>
+<% end %>
 </div>

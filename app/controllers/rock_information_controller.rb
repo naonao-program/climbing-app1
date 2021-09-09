@@ -28,11 +28,12 @@ class RockInformationController < ApplicationController
     @comments = @rock.rock_comments.includes(:user)
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @rock.update(rock_information_params)
-      redirect_to rock_information_path
+      redirect_to rock_information_path, notice: '投稿が更新しました'
     else
       render :edit
     end

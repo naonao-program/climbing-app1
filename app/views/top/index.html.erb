@@ -39,6 +39,17 @@
         <% end %>
       </div>
     <header>
-    </header> 
+    </header>
+
+    <%# トースト表示 %>
+    <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          toastr.notice('<%= value %>');
+          toastr.options.timeOut = 2000;
+        <% end %>
+      </script>
+    <% end %> 
   </body>
 </html>

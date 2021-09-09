@@ -11,7 +11,7 @@ class GymInformationController < ApplicationController
   def create
     @gym = GymInformation.new(gym_information_params)
     if @gym.save
-      redirect_to gym_information_path(@gym.id), notice: '成功しました'
+      redirect_to gym_information_path(@gym.id), notice: '投稿が完了しました'
     else
       render :new
     end
@@ -31,6 +31,7 @@ class GymInformationController < ApplicationController
   def update
     @gym = GymInformation.find(params[:id])
     if @gym.update(gym_information_params)
+      flash[:notice] = '投稿が更新されました'
       redirect_to gym_information_path
     else
       render :edit
@@ -41,6 +42,7 @@ class GymInformationController < ApplicationController
     @gym = GymInformation.find(params[:id])
     if current_user.id == @gym.user_id
       @gym.destroy
+      flash[:notice] = '投稿が削除されました'
       redirect_to gym_information_index_path
     end
   end
