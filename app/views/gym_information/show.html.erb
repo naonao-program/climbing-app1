@@ -200,10 +200,11 @@
 <div>
 
 <%# Toast表示 %>
-<script>toastr.options.closeDuration = 300;</script>
 <% if flash.any? %>
   <script type="text/javascript">
     <% flash.each do |key, value| %>
+      toastr.options.timeOut = 2000;
+      toastr.options.positionClass = "toast-top-center"
       <% key = "success" if key == "notice" %>
       toastr['<%= key %>']('<%= value %>');
     <% end %>

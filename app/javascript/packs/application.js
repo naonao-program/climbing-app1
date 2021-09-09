@@ -14,6 +14,7 @@ require('./googlemaps')
 require('./current')
 require('jquery')
 
+// toastr
 import './src/application.scss'
 import toastr from 'toastr'
 window.toastr = toastr

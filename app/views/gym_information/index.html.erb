@@ -51,6 +51,9 @@
   <%# Toast表示 %>
 <% if flash.any? %>
   <script type="text/javascript">
+  console.log(toastr)
+    toastr.options.timeOut = 2000;
+    toastr.options.positionClass = "toast-top-center"
     <% flash.each do |key, value| %>
       <% key = "success" if key == "notice" %>
       toastr['<%= key %>']('<%= value %>');
